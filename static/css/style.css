@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *:root {
   --identityColor: #901a34;
   --primaryColor: #ffffff;
@@ -39,6 +40,9 @@ body {
 #header #nav {
   margin: 0 5%;
 }
+#header #nav #logo {
+  width: 75%;
+}
 
 #offcanvasNavbarLabel {
   color: var(--identityColor);
@@ -51,6 +55,7 @@ body {
 }
 
 #cards {
+  padding-top: 7%;
   max-width: 100%;
   height: 100%;
   display: grid;
@@ -61,7 +66,6 @@ body {
 #cards #target {
   width: 100%;
   height: 35vh;
-  border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 5px 5px -5px var(--darkColor);
 }
@@ -83,6 +87,7 @@ body {
   position: absolute;
 }
 #cards #target #image #note {
+  max-width: 90%;
   background-color: var(--primaryColor);
   margin-bottom: 4%;
   display: flex;
@@ -98,4 +103,399 @@ body {
   margin: 0;
   color: var(--primaryColor);
   font-size: 1.5rem;
+  text-align: center;
+}
+
+#index {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--identityColor);
+}
+#index h1 {
+  cursor: default;
+}
+#index #buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+#index #buttons a {
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--identityColor);
+  background-color: var(--primaryColor);
+  padding: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all ease-in-out 0.1s;
+  opacity: 75%;
+}
+#index #buttons a:hover {
+  background-color: var(--identityColor);
+  color: var(--primaryColor);
+}
+#index #buttons .b1 {
+  transform: perspective(100px) rotateY(10deg);
+  width: 12rem;
+  transition: all ease-in-out 0.3s;
+}
+#index #buttons .b1:hover {
+  transform: perspective(100px) rotateY(15deg);
+}
+#index #buttons .b2 {
+  transform: perspective(100px) rotateY(-10deg);
+  width: 12rem;
+  transition: all ease-in-out 0.3s;
+}
+#index #buttons .b2:hover {
+  transform: perspective(100px) rotateY(-15deg);
+}
+#index #logo {
+  width: auto;
+  background-color: var(--primaryColor);
+  opacity: 75%;
+  border: 8px groove var(--identityColor);
+  position: absolute;
+  top: 12%;
+  transition: all ease-in-out 0.3s;
+  width: 30%;
+}
+#index #logo img {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  opacity: 1;
+  position: relative;
+  border: none;
+}
+#index img:hover {
+  scale: 0.8;
+}
+
+.fondo {
+  background: linear-gradient(90deg, rgba(144, 26, 60, 0.3) 0%, rgba(144, 26, 60, 0.3) 100%), url(../assets/images/index_fondo.jfif);
+}
+
+.gradientR {
+  background: linear-gradient(90deg, rgba(144, 26, 60, 0.6) 0, rgba(144, 26, 60, 0.3) 60%), url(../assets/images/index_fondo.jfif);
+}
+
+.gradientL {
+  background: linear-gradient(-90deg, rgba(144, 26, 60, 0.6) 0, rgba(144, 26, 60, 0.3) 60%), url(../assets/images/index_fondo.jfif);
+}
+
+.modal-dialog {
+  color: var(--identityColor);
+}
+
+/*Disp Moviles normalitos*/
+@media (max-width: 768px) {
+  #head {
+    height: 10vh;
+    width: 100%;
+  }
+  #header #nav {
+    margin: 0 5%;
+  }
+  #header #nav .navbar-brand {
+    width: 50%;
+  }
+  #header #nav #logo {
+    width: 100%;
+  }
+  #cards {
+    padding-top: 15%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5rem 0.5rem;
+    margin: 0 2%;
+  }
+  #cards #target {
+    width: 100%;
+    height: 17vh;
+  }
+  #cards #target #image #note {
+    max-width: 80%;
+    margin-bottom: 3%;
+  }
+  #cards #target #image #note h5 {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  #index #buttons {
+    width: 60%;
+  }
+  #index #buttons a {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 0.6rem;
+  }
+  #index #logo {
+    width: 50%;
+  }
+}
+/*Dispositivos grandes/medianos*/
+@media (min-width: 700px) and (max-width: 767px) {
+  #cards {
+    padding-top: 16%;
+    grid-gap: 0.8rem 0.8rem;
+    margin: 0 1.5%;
+  }
+  #cards #target {
+    width: 100%;
+    height: 22vh;
+  }
+  #cards #target #image #note {
+    max-width: 90%;
+    margin-bottom: 3%;
+  }
+  #cards #target #image #note h5 {
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+@media (min-width: 651px) and (max-width: 699px) {
+  #cards {
+    padding-top: 16%;
+    grid-gap: 0.8rem 0.8rem;
+    margin: 0 1.5%;
+  }
+  #cards #target {
+    width: 100%;
+    height: 22vh;
+  }
+  #cards #target #image #note {
+    max-width: 90%;
+    margin-bottom: 3%;
+  }
+  #cards #target #image #note h5 {
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+@media (min-width: 601px) and (max-width: 650px) {
+  #cards {
+    padding-top: 16%;
+  }
+}
+/*Moviles sm*/
+@media (max-width: 480px) {
+  #cards {
+    padding-top: 18%;
+  }
+  #index #buttons {
+    width: 70%;
+  }
+  #index #buttons a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.3rem;
+  }
+  #index #logo {
+    width: 70%;
+  }
+}
+@media (min-width: 481px) and (max-width: 600px) {
+  #index #buttons {
+    width: 70%;
+  }
+  #index #buttons a {
+    font-size: 1.8rem;
+    font-weight: 800;
+    padding: 0.5rem;
+  }
+  #index #logo {
+    width: 70%;
+  }
+  #cards {
+    padding-top: 17%;
+  }
+}
+/*Tablets, ipads y laptops pequeñas*/
+@media (min-width: 769px) and (max-width: 880px) {
+  #header #nav .navbar-brand {
+    width: 50%;
+  }
+  #cards {
+    padding-top: 12%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.7rem 0.7rem;
+    margin: 0 1.2%;
+  }
+  #cards #target {
+    width: 100%;
+    height: 20vh;
+  }
+  #cards #target #image #note {
+    max-width: 90%;
+    margin-bottom: 3%;
+  }
+  #cards #target #image #note h5 {
+    padding: 0.2rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+  #index #buttons {
+    width: 60%;
+  }
+  #index #buttons a {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 0.6rem;
+  }
+  #index #logo {
+    width: 50%;
+  }
+}
+@media (min-width: 881px) and (max-width: 970px) {
+  #header #nav .navbar-brand {
+    width: 50%;
+  }
+  #cards {
+    padding-top: 12%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.7rem 0.7rem;
+    margin: 0 1.2%;
+  }
+  #cards #target {
+    width: 100%;
+    height: 20vh;
+  }
+  #cards #target #image #note {
+    max-width: 90%;
+    margin-bottom: 3%;
+  }
+  #cards #target #image #note h5 {
+    padding: 0.2rem;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  #index #buttons {
+    width: 60%;
+  }
+  #index #buttons a {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 0.6rem;
+  }
+  #index #logo {
+    width: 50%;
+  }
+}
+@media (min-width: 971px) and (max-width: 1024px) {
+  #header #nav .navbar-brand {
+    width: 50%;
+  }
+  #cards {
+    padding-top: 12%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.7rem 0.7rem;
+    margin: 0 1.2%;
+  }
+  #cards #target {
+    width: 100%;
+    height: 24vh;
+  }
+  #cards #target #image #note {
+    max-width: 90%;
+    margin-bottom: 3%;
+  }
+  #cards #target #image #note h5 {
+    padding: 0.2rem;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  #index #buttons {
+    width: 60%;
+  }
+  #index #buttons a {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 0.6rem;
+  }
+  #index #logo {
+    width: 50%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1200px) {
+  #header #nav .navbar-brand {
+    width: 50%;
+  }
+  #cards {
+    padding-top: 11.5%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.7rem 0.7rem;
+    margin: 0 1.2%;
+  }
+  #cards #target {
+    width: 100%;
+    height: 24vh;
+  }
+  #cards #target #image #note {
+    max-width: 90%;
+    margin-bottom: 3%;
+  }
+  #cards #target #image #note h5 {
+    padding: 0.2rem;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  #index #buttons {
+    width: 60%;
+  }
+  #index #buttons a {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 0.6rem;
+  }
+  #index #logo {
+    width: 50%;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1600px) {
+  #cards {
+    padding-top: 9%;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1280px) {
+  #index #buttons {
+    width: 60%;
+  }
+  #index #buttons a {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 0.6rem;
+  }
+  #index #logo {
+    width: 50%;
+  }
+  #cards {
+    padding-top: 10%;
+  }
+}
+@media (min-width: 1281px) and (max-width: 1600px) {
+  #index #buttons {
+    width: 50%;
+  }
+  #index #buttons a {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 0.6rem;
+  }
+  #index #logo {
+    width: 40%;
+  }
 }/*# sourceMappingURL=style.css.map */

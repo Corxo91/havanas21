@@ -10,12 +10,16 @@
     <title>Havana's 21</title>
 </head>
 <body>
-    <header  id="head">
-        {% include "layout/partials/nav_bar_cocina.html" %}
+    <header>
+        {% block header %}
+        {% endblock  %}
     </header>
-    <main>
-        {% include "layout/partials/view_cocina.html" %}
+    <main id="main">
+        {% block main %}
+        {% endblock %}
     </main>
 </body>
+{% block js %}
+{% endblock  %}
 <script src="{% static "lib/bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js" %}"></script>
 </html>
