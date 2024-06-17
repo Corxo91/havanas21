@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-ip)(xunjiq=r6^(uhe&x05gu3ea#t=kc1o(esg&js-ss0kbspy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hv21.pythonanywhere.com']
 
 
 # Application definition
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'login',
+    'cocina',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -50,7 +51,7 @@ ROOT_URLCONF = 'havanas21.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR,'templates' )],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
