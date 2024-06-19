@@ -1,11 +1,13 @@
-from django.contrib import admin
+#from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path('', include('login.urls')),
+    path('client/', include('cliente.urls')),
+    path('administrador/', include('administrator.urls'))
 ]
 
 if settings.DEBUG:

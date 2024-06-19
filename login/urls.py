@@ -3,8 +3,9 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path('', views.bienvenida, name='bienvenida'),
-    path('cocina/', include('cocina.urls'))
+    path('', views.welcome_view, name='bienvenida'),
+    path('login/', views.login_view, name='login'),
+    path('tools/', include('cocina.urls')),
 ]
 
 if settings.DEBUG:
