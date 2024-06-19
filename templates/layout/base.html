@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,8 +19,8 @@
         {% block main %}
         {% endblock %}
     </main>
+    {% block js %}
+    {% endblock  %}
+    <script src="{% static "lib/bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js" %}"></script>
 </body>
-{% block js %}
-{% endblock  %}
-<script src="{% static "lib/bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js" %}"></script>
 </html>

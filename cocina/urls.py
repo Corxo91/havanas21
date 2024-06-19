@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.cocina, name='cocina'),
+    path('logout/', views.logout_view, name='logout'),
 ]
 
 if settings.DEBUG:

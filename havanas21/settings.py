@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'cocina',
+    'cliente',
+    'administrator'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -72,12 +74,12 @@ WSGI_APPLICATION = 'havanas21.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        "NAME": "havana21",
-        "USER": "postgres",
-        "PASSWORD": "postgre",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        'ENGINE': 'django.db.backends.mysql',
+        "NAME": "hv21$default",
+        "USER": "hv21",
+        "PASSWORD": "havanas21_db",
+        "HOST": "hv21.mysql.pythonanywhere-services.com",
+        "PORT": "3306",
     }
 }
 
@@ -131,5 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#LOGIN_REDIRECT_URL = 'loget'
-#LOGOUT_REDIRECT_URL = '!loget'
+AUTH_USER_MODEL = 'login.User'
+
+LOGOUT_REDIRECT_URL = 'bienvenida'

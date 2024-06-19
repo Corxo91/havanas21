@@ -1,12 +1,9 @@
 {% load static %}
 <nav class="navbar bg-body-tertiary fixed-top" id="header">
     <div class="container-fluid" id="nav">
-      <a class="navbar-brand" href="{% url "bienvenida" %}"
-        ><img
-          src="{% static "assets/icon/Logo Cafe.png" %}"
-          alt="Havana's 21"
-          id="logo"
-      /></a>
+      <a class="navbar-brand" href="{% url "logout" %}" id="logout">
+        <img src="{% static "assets/icon/Logo Cafe.png" %}" alt="Havana's 21" id="logo">
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -35,12 +32,18 @@
           ></button>
         </div>
         <div class="offcanvas-body d-flex flex-column justify-content-between">
-          {% include "layout/partials/ham_cocina.html" %}
+          {% if user.is_authenticated  %}
+            {% if user.if_cocina %}
+              {% include "layout/partials/ham_cocina.html" %}
+            {% elif user.if_bar %}
+              {% include "layout/partials/ham_bar.html" %}
+            {% endif %}
+          {% endif %}
           <form class="d-flex mt-3" role="search">
             <input
               class="form-control me-2"
               type="search"
-              placeholder="Buscar Receta"
+              placeholder="Buscar"
               aria-label="Search"
             />
             <button class="btn btn-outline-danger" type="submit">

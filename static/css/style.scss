@@ -29,6 +29,11 @@
     margin: 0;
   }
 
+  h1,h2,h3,h4,h5,a,p,b,small,span {
+    padding: 0;
+    margin: 0;
+  }
+
   #head {
     height: 12vh;
     width: 100%;
@@ -101,6 +106,52 @@
                 }
             }
         }
+    }
+  }
+
+  #menu_bar {
+    padding-top: 7%;
+    padding-bottom: 1%;
+    margin: 0 2%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+    column-gap: 2rem;
+    .nav-item {
+        a {
+            color: var(--identityColor);
+        }
+    }
+    #sobre_img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .imi {
+            height: 20vh;
+            display: flex;
+            img {
+                height: 100%;
+                width: 100%;
+            }
+          }
+    }
+    .card-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: var(--identityColor);
+        color: var(--primaryColor);
+        #price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+    #ingre {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        list-style-type: none;
     }
   }
 
@@ -182,6 +233,85 @@
     }
   }
 
+  #sms {
+    position: relative;
+    margin-top: 2%;
+    width: max-content;
+  }
+
+  #mensajes {
+    position: absolute;
+    bottom: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    #mens {
+        text-align: center;
+        width: max-content;
+      }
+  }
+
+  #dashboard {
+    padding-top: 7%;
+    #nav_contenido {
+        ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            li {
+                a {
+                    font-size: 1.4rem;
+                    color: var(--identityColor);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    #contenido {
+        h2 {
+            cursor: default;
+        }
+        text-align: center;
+        color: var(--identityColor);
+        .nav-dashboard {
+            height: 7vh;
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid var(--identityColor);
+            margin-bottom: 2%;
+            ul {
+                display: flex;
+                gap: 1rem;
+                list-style-type: none;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 0;
+                padding: 0;
+                li {
+                    a {
+                        text-decoration: none;
+                        color: var(--identityColor);
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+        .table {
+            color: var(--identityColor);
+            svg {
+                width: 25px;
+                height: 25px;
+                color: var(--identityColor);
+            }
+        }
+    }
+  }
+
+  
+
   .fondo {
     background: 
     linear-gradient(90deg, rgba(144,26,60,0.3) 0%, rgba(144,26,60,0.3) 100%),
@@ -255,6 +385,15 @@
             width: 50%;
         }
     }
+    #menu_bar {
+        grid-template-columns: repeat(1,1fr);
+        padding-top: 20%;
+        padding-bottom: 5%;
+        margin: 0 5%;
+    }
+    #dashboard {
+        padding-top: 15%;
+    }
 }
 
 /*Dispositivos grandes/medianos*/
@@ -310,12 +449,30 @@
     }
 }
 
-
-
-
-
-
 /*Moviles sm*/
+@media (min-width: 374px) and (max-width: 450px) {
+    #agg {
+        font-size: 0.8rem;
+    }
+
+    #dashboard #nav_contenido ul {
+        padding: 0;
+        li {
+            a {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    #dashboard #contenido .nav-dashboard ul li a {
+        font-size: 0.9rem;
+    }
+
+
+    .table>:not(caption)>*>* {
+        padding: .3rem .3rem;
+    }
+}
 
 @media (max-width: 480px){
     #cards{
@@ -334,6 +491,9 @@
             width: 70%;
         }
     }
+    #dashboard {
+        padding-top: 17%;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 600px) {
@@ -351,6 +511,9 @@
         }
     }
     #cards{
+        padding-top: 17%;
+    }
+    #dashboard {
         padding-top: 17%;
     }
 }
@@ -401,6 +564,16 @@
             width: 50%;
         }
     }
+
+    #menu_bar {
+        grid-template-columns: repeat(1,1fr);
+        padding-top: 15%;
+        padding-bottom: 5%;
+        margin: 0 3%;
+    }
+    #dashboard {
+        padding-top: 13%;
+    }
   }
 
 @media (min-width: 881px) and (max-width: 970px) { 
@@ -446,6 +619,17 @@
         #logo {
             width: 50%;
         }
+    }
+
+    #menu_bar {
+        grid-template-columns: repeat(1,1fr);
+        padding-top: 15%;
+        padding-bottom: 5%;
+        margin: 0 3%;
+    }
+
+    #dashboard {
+        padding-top: 12%;
     }
   }
 
@@ -493,6 +677,17 @@
             width: 50%;
         }
     }
+
+    #menu_bar {
+        grid-template-columns: repeat(1,1fr);
+        padding-top: 13%;
+        padding-bottom: 3%;
+        margin: 0 3%;
+    }
+
+    #dashboard {
+        padding-top: 12%;
+    }
   }
 
 @media (min-width: 1025px) and (max-width: 1200px) { 
@@ -539,11 +734,25 @@
             width: 50%;
         }
     }
+
+    #menu_bar {
+        grid-template-columns: repeat(1,1fr);
+        padding-top: 13%;
+        padding-bottom: 3%;
+        margin: 0 3%;
+    }
+
+    #dashboard {
+        padding-top: 11%;
+    }
   }
 
 @media (min-width: 1201px) and (max-width: 1600px) {
     #cards {
         padding-top: 9%;
+    }
+    #dashboard {
+        padding-top: 10%;
     }
 }
 
@@ -564,6 +773,12 @@
     #cards {
         padding-top: 10%;
     }
+    #menu_bar {
+        grid-template-columns: repeat(1,1fr);
+        padding-top: 12%;
+        padding-bottom: 3%;
+        margin: 0 3%;
+    }
 }
 
 @media (min-width: 1281px) and (max-width: 1600px) {
@@ -579,6 +794,43 @@
         #logo {
             width: 40%;
         }
+    }
+    #menu_bar {
+        padding-top: 10%;
+        padding-bottom: 2%;
+        h3 {
+            font-size: 1.2rem;
+        }
+        h5 {
+            font-size: 0.8rem;
+        }
+        .card-title {
+            #price {
+                gap: 0.3rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+    #menu_bar {
+        padding-top: 8%;
+        padding-bottom: 1%;
+        h3 {
+            font-size: 1.2rem;
+        }
+        h5 {
+            font-size: 1rem;
+        }
+        .card-title {
+            #price {
+                gap: 0.5rem;
+            }
+        }
+    }
+
+    #dashboard {
+        padding-top: 8%;
     }
 }
 

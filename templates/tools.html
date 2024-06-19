@@ -1,0 +1,28 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block header %}
+  {% include "layout/partials/nav_bar.html" %}
+{% endblock  %}
+{% block main %}
+{% if user.is_authenticated  %}
+{% if user.if_cocina %}
+  {% include "layout/partials/cards_cocina.html" %}
+{% elif user.if_bar %}
+  {% include "layout/partials/cards_bar.html" %}
+{% else %}
+  <h1 style="padding-top: 10%; text-align: center;">Clickee el logo por favor para iniciar la aplicación</h1>
+{% endif %}
+{% endif %}
+  <section id="mensajes">
+    {% if messages %}
+    <div class="alert alert-success rounded-0" role="alert" id="mens">
+      {% for message in messages %}
+      {{ message }}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+{% endblock  %}
+{% block js %}
+<script src="{% static "js/tools.js" %}"></script>
+{% endblock %}

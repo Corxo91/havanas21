@@ -20,3 +20,12 @@ hoverButton.addEventListener('mouseover', handleHover);
 hoverButton2.addEventListener('mouseover', handleHoverL);
 hoverButton.addEventListener('mouseout', handleMouseOut);
 hoverButton2.addEventListener('mouseout', handleMouseOutL);
+
+document.addEventListener('DOMContentLoaded', function() {
+    var alertElement = document.getElementById('sms');
+    if (alertElement) {
+      setTimeout(function() {
+        alertElement.style.display = 'none';
+      }, 3000);
+    }
+  });

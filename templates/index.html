@@ -1,54 +1,29 @@
 {% extends "layout/base.html" %}
 {% load static %}
 {% block main %}
-  <section id="index" class="fondo">
-    <div id="buttons">
-        <a class="buttons b1" id="b1">
-            Restaurante
-        </a>
-        <a class="buttons b2" id="b2">
-            Caffé
-        </a>
-    </div>
-    <div id="logo">
-        <img
-        src="{% static "assets/icon/Logo Cafe.png" %}"
-        alt="Havana's 21"
-        id="logo"
-        data-bs-toggle="modal" 
-        data-bs-target="#loginForm"
-    />
-    </div>
-  </section>
 
-  <div class="modal fade" id="loginForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content rounded-0">
-        <div class="modal-header">
-          <h1 class="modal-title fs-3" id="exampleModalLabel">Iniciar Sesión</h1>
-          <p>esto es momentaneo ya que el logeo no funciona es para que vallan viendo las pestañas como van quedando. Solo tocar los botones del final</p>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="username" class="col-form-label"><h4>Usuario</h4></label>
-              <input type="text" class="form-control rounded-0" id="username" name="username">
-            </div>
-            <div class="mb-3">
-              <label for="password" class="col-form-label"><h4>Contraseña</h4></label>
-              <input type="password" class="form-control rounded-0" name="password" id="password">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal"><a href="{% url "cocina" %}" style="color:white; text-decoration:none">Cocina</a></button>
-          <button type="button" class="btn btn-danger rounded-0 opacity-75">Bar</button>
-        </div>
-      </div>
-    </div>
+<section id="index" class="fondo">
+  <div id="buttons">
+    <a class="buttons b1" id="b1" href="{% url "salon" %}"> Restaurante </a>
+    <a class="buttons b2" id="b2" href="{% url "bar" %}"> Café </a>
   </div>
+  <div id="logo">
+    <img src="{% static "assets/icon/Logo Cafe.png" %}" alt="Havana's 21" id="logo" data-bs-toggle="modal" data-bs-target="#loginForm" />
+  </div>
+</section>
+
+{% include "registration/login.html" %}
+
+{% if messages %}
+<div class="alert alert-danger container-fluid rounded-0" role="alert" id="sms">
+  {% for message in messages %}
+  {{ message }}
+  {% endfor %}
+</div>
+{% endif %}
+
 {% endblock %}
 {% block js %}
+
 <script src="{% static "js/app.js" %}"></script>
-{% endblock  %}
+{% endblock %}
