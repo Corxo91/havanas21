@@ -5,6 +5,7 @@
 {% endblock  %}
 {% block main %}
 <section id="dashboard">
+<<<<<<< HEAD
 {% if user.is_authenticated %}
     {% if user.if_subadmin %}
         {% include "layout/partials/dash_admin.html" %}
@@ -22,6 +23,27 @@
 
 
 <section id="mensajes">
+=======
+    <div class="container-fluid" id="nav_contenido">
+        <ul>
+            <li>
+                <a>Carta</a>
+            </li>
+            <li>
+                <a>Cocina</a>
+            </li>
+            <li>
+                <a>Bar</a>
+            </li>
+            <li>
+                <a>Cuentas</a>
+            </li>
+        </ul>
+    </div>
+    {% include "layout/partials/dashboard_carta.html" %}
+</section>
+  <section id="mensajes">
+>>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
     {% if messages %}
     <div class="alert alert-success rounded-0" role="alert" id="mens">
       {% for message in messages %}
@@ -29,6 +51,7 @@
       {% endfor %}
     </div>
     {% endif %}
+<<<<<<< HEAD
 </section>
 {% endblock  %}
 {% block js %}
@@ -38,4 +61,10 @@
 <script src="{% static "lib/responsive.min.js" %}"></script>
 <script src="{% static "js/table.js" %}"></script>
 
+=======
+  </section>
+{% endblock  %}
+{% block js %}
+<script src="{% static "js/admin.js" %}"></script>
+>>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 {% endblock %}

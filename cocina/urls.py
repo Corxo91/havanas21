@@ -5,7 +5,10 @@ from . import views
 urlpatterns = [
     path('', views.cocina, name='cocina'),
     path('logout/', views.logout_view, name='logout'),
+<<<<<<< HEAD
     path('informacion/', views.info, name='info'),
+=======
+>>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 ]
 
 if settings.DEBUG:

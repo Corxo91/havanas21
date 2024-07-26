@@ -4,5 +4,9 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     if_cocina = models.BooleanField(null=False, blank=False, default=False)
     if_bar = models.BooleanField(null=False, blank=False, default=False)
+<<<<<<< HEAD
     if_admin = models.BooleanField(null=False, blank=False, default=False)
     if_subadmin = models.BooleanField(null=False, blank=False, default=False)
+=======
+    if_admin = models.BooleanField(null=False, blank=False, default=True)
+>>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec

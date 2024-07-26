@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Receta, Ingredient, GaleryWorck, RecipeGaleryW, GaleryClient, RecipeGaleryC
 from django.contrib.auth.decorators import login_required
@@ -184,3 +185,13 @@ def editGC(request):
             recipe.galery_client.add(galery)
             
     return redirect('admin')
+=======
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+import cocina.urls
+
+@login_required
+def admin(request):
+    return render(request, 'administrador.html')
+
+>>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec

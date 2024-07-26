@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+<<<<<<< HEAD
 from administrator.models import Receta
 
 @login_required
@@ -39,6 +40,12 @@ def info(request):
         'galery': galery
     }    
     return render(request, 'info_cocina.html', context)
+=======
+
+@login_required
+def cocina(request):
+    return render(request, 'tools.html', {})
+>>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 
 def logout_view(request):
     logout(request)
