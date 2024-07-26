@@ -1,43 +1,38 @@
 {% load static %}
-<section id="cards">
-    <article id="target" data-bs-toggle="modal" data-bs-target="#recipe1">
-      <div id="image">
-        <img src="{% static "assets/images/mojito.jfif" %}" alt="" id="img" />
-        <div id="note">
-            <h5>Mojito</h5>
-        </div>
-      </div>
-    </article>
-    <article id="target" data-bs-toggle="modal" data-bs-target="#recipe2">
-      <div id="image">
-        <img src="{% static "assets/images/daiquiri.jfif" %}" alt="" id="img" />
-        <div id="note">
-            <h5>Daiquirí</h5>
-        </div>
-      </div>
-    </article>
-    <article id="target" data-bs-toggle="modal" data-bs-target="#recipe3">
-      <div id="image">
-        <img src="{% static "assets/images/cubalibre.jpg" %}" alt="" id="img" />
-        <div id="note">
-            <h5>Cuba Libre</h5>
-        </div>
-      </div>
-    </article>
-    <article id="target">
-      <div id="image">
-        <img src="{% static "assets/images/colada.jfif" %}" alt="" id="img" />
-        <div id="note">
-            <h5>Colada Cubana</h5>
-        </div>
-      </div>
-    </article>
-    <article id="target">
-      <div id="image">
-        <img src="{% static "assets/images/cortadito.jfif" %}" alt="" id="img" />
-        <div id="note">
-            <h5>Cortadito</h5>
-        </div>
-      </div>
-    </article>
-  </section>
+<section id="todos">
+  <h2 class="nShow" id="general">Resultados de la busqueda</h2>
+  <div id="ep" class="cositas">
+    <h2 class="tittle" style="margin-bottom: 1%;">Cócteles</h2>
+    <section id="cards">
+      {% for productosEP in recipeCo %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosEP.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosEP.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosEP.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="ef" class="cositas">
+    <h2 class="tittle" style="margin-bottom: 1%;">Cafés</h2>
+    <section id="cards">
+      {% for productosEF in recipeCa %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosEF.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosEF.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosEF.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+</section>

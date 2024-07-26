@@ -29,21 +29,18 @@
             class="btn-close"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
+            id="btnClose"
           ></button>
         </div>
         <div class="offcanvas-body d-flex flex-column justify-content-between">
             {% include "layout/partials/ham_bar.html" %}
-          <form class="d-flex mt-3" role="search">
             <input
-              class="form-control me-2"
+              class="form-control"
               type="search"
               placeholder="Buscar"
               aria-label="Search"
+              id="busqueda"
             />
-            <button class="btn btn-outline-danger" type="submit">
-              Buscar
-            </button>
-          </form>
         </div>
       </div>
     </div>

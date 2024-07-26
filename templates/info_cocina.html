@@ -1,0 +1,152 @@
+{% extends "layout/base.html" %} 
+{% load static %} 
+{% block main %}
+    <div id="informacion">
+        <a href="{% url "cocina" %}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"          stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </a>
+        <div class="info_d">
+            <div class="top">
+                <div class="foto">
+                    <img src="{{recipe.imagen.url}}" alt="{{recipe.imagen}}">
+                    <h2 class="text-center">{{recipe.recipe}}</h2>
+                    <h4 class="text-center">Tiempo de cocción: {{recipe.time_out}} minutos</h4>
+                </div>
+                <div class="ingredientes">
+                    <ul>
+                        <div class="tittle">
+                            <h2>Ingredientes</h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-bs-toggle="modal" data-bs-target="#ingredientes">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                        </div>
+                        <br>
+                        {% for ingrediente in ingredientes %}
+                            <li>
+                                <h4>{{ingrediente.name}}: {{ingrediente.amount}}</h4>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div class="down">
+                <div class="tittle">
+                    <h2>Muestras</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-bs-toggle="modal" data-bs-target="#galeria">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </div>
+                <div class="galeria">
+                    {% for imagen in galery|slice:":3" %}
+                        <img src="{{imagen.imagen.url}}" alt="">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="info_i">
+            <div>
+                <a data-bs-toggle="modal" data-bs-target="#descripcion">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </a>
+                <h2>Descripción</h2>
+                <br>
+                <h4>{{recipe.descrip}}</h4>
+            </div>
+            <br>
+            <div>
+                <a data-bs-toggle="modal" data-bs-target="#pasos">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </a>
+                <h2>Preparación</h2>
+                <br>
+                <h4>{{recipe.steps}}</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ingredientes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title" id="exampleModalLabel">Preparación</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="ul-ing-modal">
+                        {% for ingrediente in ingredientes %}
+                            <li>
+                                <h4 class="text-center">{{ingrediente.name}}: {{ingrediente.amount}}</h4>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="modal fade" id="descripcion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title" id="exampleModalLabel">Preparación</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal_descrip">
+                        <h2>{{recipe.descrip}}</h2>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="modal fade" id="pasos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title" id="exampleModalLabel">Preparación</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal_descrip">
+                        <h2>{{recipe.steps}}</h2>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="modal fade" id="galeria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title" id="exampleModalLabel">Galería de muestras</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="imagenes">
+                        {% for imagenes in galery %}
+                            <div class="imagen">
+                                <img src="{{imagenes.imagen.url}}" class=" img img{{forloop.counter}}" id="img{{forloop.counter}}" alt="{{recipe.recipe}}">
+                            </div>
+                        {% endfor %}
+                        <div class="container_img">
+                            <img src="" alt="" class="img-show">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"          stroke="currentColor" class="close">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                            <h1 class="copy"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="{% static "js/infoCocina.js" %}"></script>
+{% endblock  %}

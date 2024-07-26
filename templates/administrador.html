@@ -5,25 +5,23 @@
 {% endblock  %}
 {% block main %}
 <section id="dashboard">
-    <div class="container-fluid" id="nav_contenido">
-        <ul>
-            <li>
-                <a>Carta</a>
-            </li>
-            <li>
-                <a>Cocina</a>
-            </li>
-            <li>
-                <a>Bar</a>
-            </li>
-            <li>
-                <a>Cuentas</a>
-            </li>
-        </ul>
-    </div>
-    {% include "layout/partials/dashboard_carta.html" %}
+{% if user.is_authenticated %}
+    {% if user.if_subadmin %}
+        {% include "layout/partials/dash_admin.html" %}
+    {% else %}
+        {% include "layout/partials/dashboard_carta.html" %}
+        {% include "layout/partials/carta_r.html" %}
+    {% endif %}
+{% endif %}
+<a class="btn btn-danger" href="#dashboard" id="subir">↑</a>
 </section>
-  <section id="mensajes">
+
+
+{% include "layout/partials/add_recipe.html" %}
+{% include "layout/partials/add_bar.html" %}
+
+
+<section id="mensajes">
     {% if messages %}
     <div class="alert alert-success rounded-0" role="alert" id="mens">
       {% for message in messages %}
@@ -31,8 +29,13 @@
       {% endfor %}
     </div>
     {% endif %}
-  </section>
+</section>
 {% endblock  %}
 {% block js %}
 <script src="{% static "js/admin.js" %}"></script>
+<script src="{% static "lib/jquery.min.js" %}"></script>
+<script src="{% static "lib/datatables.min.js" %}"></script>
+<script src="{% static "lib/responsive.min.js" %}"></script>
+<script src="{% static "js/table.js" %}"></script>
+
 {% endblock %}
