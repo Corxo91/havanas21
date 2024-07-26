@@ -2,7 +2,6 @@ from django.urls import path
 from django.conf import settings
 from . import views
 
-<<<<<<< HEAD
 
 urlpatterns = [
     path('', views.admin, name='admin'),
@@ -12,10 +11,6 @@ urlpatterns = [
     path('changeEdit/', views.changeEdit, name='changeEdit'),
     path('photoEdit/', views.editGW, name='editGW'),
     path('photoEditC/', views.editGC, name='editGC'),
-=======
-urlpatterns = [
-    path('', views.admin, name='admin'),
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 ]
 
 if settings.DEBUG:

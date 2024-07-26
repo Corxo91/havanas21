@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 3000);
     }
   });
-<<<<<<< HEAD
 
 
   let ingredientCounter = 3; // Empezamos con 3 campos por defecto
@@ -123,5 +122,3 @@ function returnCartaBar() {
   cartaBar.style.display = "block";
   nav.style.display = "none";
 }
-=======
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec

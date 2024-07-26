@@ -34,13 +34,9 @@ def create_user(username, password):
                 if_cocina=True,
                 if_bar=False,
                 is_superuser=False,
-<<<<<<< HEAD
                 if_admin=False,
                 if_comercial=False,
                 if_economica=False,
-=======
-                if_admin=False
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
             )
             print(f"Usuario de cocina '{user.username}' creado exitosamente.")
             return
@@ -54,13 +50,9 @@ def create_user(username, password):
                 if_cocina=False,
                 if_bar=True,
                 is_superuser=False,
-<<<<<<< HEAD
                 if_admin=False,
                 if_comercial=False,
                 if_economica=False,
-=======
-                if_admin=False
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
             )
             print(f"Usuario de bar '{user.username}' creado exitosamente.")
             return
@@ -68,18 +60,13 @@ def create_user(username, password):
         # Verifica si es usuario administrador
         is_admin = input("¿Es usuario administrador? (si/no): ")
         if is_admin.lower() == "si":
-<<<<<<< HEAD
             if_comercial = input("¿Es comercial? (si/no): ")
             if if_comercial.lower() == "si":
                 user = User.objects.create_user(
-=======
-            user = User.objects.create_user(
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
                 username=username,
                 password=password,
                 if_cocina=False,
                 if_bar=False,
-<<<<<<< HEAD
                 is_superuser=False,
                 if_admin=False,
                 if_comercial=True,
@@ -113,12 +100,6 @@ def create_user(username, password):
                     if_economica=False,
                     )
                     print(f"Usuario administradorcomer '{user.username}' creado exitosamente.")
-=======
-                is_superuser=True,
-                if_admin=True
-            )
-            print(f"Usuario administrador '{user.username}' creado exitosamente.")
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
             return
 
         print("No se ha seleccionado ningún tipo de usuario válido. Intenta de nuevo.")

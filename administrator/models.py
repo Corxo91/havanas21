@@ -1,6 +1,5 @@
 from django.db import models
 
-<<<<<<< HEAD
 
 class GaleryWorck(models.Model):
     imagen = models.ImageField(upload_to='galeryWorckIMG/', null=False, blank=False)
@@ -39,6 +38,3 @@ class RecipeGaleryW(models.Model):
 class RecipeGaleryC(models.Model): 
     recipe = models.ForeignKey(Receta, on_delete=models.CASCADE, related_name='recipe_galeryC')
     image = models.ForeignKey(GaleryClient, on_delete=models.CASCADE, related_name='imageC_recipes')
-=======
-# Create your models here.
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec

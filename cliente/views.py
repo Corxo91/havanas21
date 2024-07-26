@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-<<<<<<< HEAD
 from administrator.models import Receta
 
 def bar(request):
@@ -30,11 +29,3 @@ def salon(request):
         'salonP': salonP,
     }
     return render(request, 'salon.html', context)
-=======
-
-def bar(request):
-    return render(request, 'cafe.html')
-
-def salon(request):
-    return render(request, 'salon.html')
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec

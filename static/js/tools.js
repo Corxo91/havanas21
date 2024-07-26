@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
         alertElement.style.display = 'none';
       }, 3000);
     }
-<<<<<<< HEAD
   });
 
   //funcionalidad del menu hamburguesa
@@ -171,6 +170,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-=======
-  });
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec

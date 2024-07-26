@@ -120,11 +120,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
 }
 
 #menu_bar {
-<<<<<<< HEAD
-=======
-  padding-top: 7%;
-  padding-bottom: 1%;
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
   margin: 0 2%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -132,7 +127,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   -moz-column-gap: 2rem;
        column-gap: 2rem;
 }
-<<<<<<< HEAD
 #menu_bar #cards_bar {
   margin-bottom: 5%;
 }
@@ -143,11 +137,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   width: 100%;
   word-wrap: anywhere;
 }
-=======
-#menu_bar .nav-item a {
-  color: var(--identityColor);
-}
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 #menu_bar #sobre_img {
   display: flex;
   justify-content: center;
@@ -156,11 +145,8 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
 #menu_bar #sobre_img .imi {
   height: 20vh;
   display: flex;
-<<<<<<< HEAD
   justify-content: center;
   align-items: center;
-=======
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 #menu_bar #sobre_img .imi img {
   height: 100%;
@@ -179,14 +165,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   align-items: center;
   gap: 1rem;
 }
-<<<<<<< HEAD
-=======
-#menu_bar #ingre {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  list-style-type: none;
-}
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 
 #index {
   position: absolute;
@@ -273,11 +251,7 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
 }
 
 #mensajes {
-<<<<<<< HEAD
   position: fixed;
-=======
-  position: absolute;
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
   bottom: 1%;
   display: flex;
   justify-content: center;
@@ -293,25 +267,19 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
 #dashboard {
   padding-top: 7%;
 }
-<<<<<<< HEAD
 #dashboard #subir {
   position: fixed;
   bottom: 1%;
   left: 1%;
 }
-=======
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 #dashboard #nav_contenido ul {
   list-style-type: none;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 3rem;
-<<<<<<< HEAD
   padding: 0;
   margin: 0;
-=======
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 #dashboard #nav_contenido ul li a {
   font-size: 1.4rem;
@@ -346,7 +314,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   color: var(--identityColor);
   font-size: 1.2rem;
 }
-<<<<<<< HEAD
 #dashboard #contenido_carta {
   display: none;
   text-align: center;
@@ -832,17 +799,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   background-color: var(--identityColor);
 }
 
-=======
-#dashboard #contenido .table {
-  color: var(--identityColor);
-}
-#dashboard #contenido .table svg {
-  width: 25px;
-  height: 25px;
-  color: var(--identityColor);
-}
-
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 .fondo {
   background: linear-gradient(90deg, rgba(144, 26, 60, 0.3) 0%, rgba(144, 26, 60, 0.3) 100%), url(../assets/images/index_fondo.jfif);
 }
@@ -912,7 +868,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   }
   #menu_bar {
     grid-template-columns: repeat(1, 1fr);
-<<<<<<< HEAD
     margin: 0 5%;
   }
   #menu_bar #sobre_img .imi {
@@ -974,15 +929,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #informacion .info_i {
     width: 100%;
   }
-=======
-    padding-top: 20%;
-    padding-bottom: 5%;
-    margin: 0 5%;
-  }
-  #dashboard {
-    padding-top: 15%;
-  }
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 /*Dispositivos grandes/medianos*/
 @media (min-width: 700px) and (max-width: 767px) {
@@ -1160,27 +1106,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
     padding: 0.3rem 0.3rem;
   }
 }
-<<<<<<< HEAD
-=======
-/*Moviles sm*/
-@media (min-width: 374px) and (max-width: 450px) {
-  #agg {
-    font-size: 0.8rem;
-  }
-  #dashboard #nav_contenido ul {
-    padding: 0;
-  }
-  #dashboard #nav_contenido ul li a {
-    font-size: 1rem;
-  }
-  #dashboard #contenido .nav-dashboard ul li a {
-    font-size: 0.9rem;
-  }
-  .table > :not(caption) > * > * {
-    padding: 0.3rem 0.3rem;
-  }
-}
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 @media (max-width: 480px) {
   #todos {
     padding-top: 18%;
@@ -1199,7 +1124,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #dashboard {
     padding-top: 17%;
   }
-<<<<<<< HEAD
   #dashboard .edit_all {
     padding-top: 5%;
   }
@@ -1242,8 +1166,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #informacion .info_d .top {
     gap: 2rem;
   }
-=======
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 @media (min-width: 481px) and (max-width: 600px) {
   #index #buttons {
@@ -1263,7 +1185,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #dashboard {
     padding-top: 17%;
   }
-<<<<<<< HEAD
   #imagenes {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1279,8 +1200,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #informacion .info_d .top {
     gap: 2rem;
   }
-=======
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 /*Tablets, iPads y laptops pequeñas*/
 @media (min-width: 769px) and (max-width: 880px) {
@@ -1321,17 +1240,11 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   }
   #menu_bar {
     grid-template-columns: repeat(1, 1fr);
-<<<<<<< HEAD
-=======
-    padding-top: 15%;
-    padding-bottom: 5%;
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
     margin: 0 3%;
   }
   #dashboard {
     padding-top: 13%;
   }
-<<<<<<< HEAD
   #dashboard .edit_all form {
     flex-direction: column;
     justify-content: center;
@@ -1383,8 +1296,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #informacion .info_i {
     width: 100%;
   }
-=======
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 @media (min-width: 881px) and (max-width: 970px) {
   #header #nav .navbar-brand {
@@ -1424,7 +1335,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   }
   #menu_bar {
     grid-template-columns: repeat(1, 1fr);
-<<<<<<< HEAD
     margin: 0 3%;
   }
   #menu_bar #sobre_img .imi img {
@@ -1484,15 +1394,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #informacion .info_i {
     width: 100%;
   }
-=======
-    padding-top: 15%;
-    padding-bottom: 5%;
-    margin: 0 3%;
-  }
-  #dashboard {
-    padding-top: 12%;
-  }
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 @media (min-width: 971px) and (max-width: 1024px) {
   #header #nav .navbar-brand {
@@ -1532,7 +1433,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   }
   #menu_bar {
     grid-template-columns: repeat(1, 1fr);
-<<<<<<< HEAD
     margin: 0 3%;
   }
   #menu_bar #sobre_img .imi img {
@@ -1592,15 +1492,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #informacion .info_i {
     width: 100%;
   }
-=======
-    padding-top: 13%;
-    padding-bottom: 3%;
-    margin: 0 3%;
-  }
-  #dashboard {
-    padding-top: 12%;
-  }
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 @media (min-width: 1025px) and (max-width: 1200px) {
   #header #nav .navbar-brand {
@@ -1640,7 +1531,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   }
   #menu_bar {
     grid-template-columns: repeat(1, 1fr);
-<<<<<<< HEAD
     margin: 0 3%;
   }
   #menu_bar #sobre_img .imi img {
@@ -1670,15 +1560,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #informacion .info_i {
     width: 100%;
   }
-=======
-    padding-top: 13%;
-    padding-bottom: 3%;
-    margin: 0 3%;
-  }
-  #dashboard {
-    padding-top: 11%;
-  }
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 @media (min-width: 1201px) and (max-width: 1600px) {
   #todos {
@@ -1687,15 +1568,12 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #dashboard {
     padding-top: 10%;
   }
-<<<<<<< HEAD
   #dashboard .edit_all form .datos_form label {
     font-size: 1.4rem;
   }
   #informacion .info_d .down .galeria img {
     height: 70%;
   }
-=======
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 @media (min-width: 1201px) and (max-width: 1280px) {
   #index #buttons {
@@ -1714,7 +1592,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   }
   #menu_bar {
     grid-template-columns: repeat(1, 1fr);
-<<<<<<< HEAD
     margin: 0 3%;
   }
   #menu_bar #sobre_img .imi img {
@@ -1723,12 +1600,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #informacion .info_d .down .galeria img {
     height: 50%;
   }
-=======
-    padding-top: 12%;
-    padding-bottom: 3%;
-    margin: 0 3%;
-  }
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }
 @media (min-width: 1281px) and (max-width: 1600px) {
   #index #buttons {
@@ -1742,13 +1613,6 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #index #logo {
     width: 40%;
   }
-<<<<<<< HEAD
-=======
-  #menu_bar {
-    padding-top: 10%;
-    padding-bottom: 2%;
-  }
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
   #menu_bar h3 {
     font-size: 1.2rem;
   }
@@ -1758,20 +1622,11 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #menu_bar .card-title #price {
     gap: 0.3rem;
   }
-<<<<<<< HEAD
   #informacion .info_d .down .galeria img {
     height: 60%;
   }
 }
 @media (min-width: 1401px) and (max-width: 1600px) {
-=======
-}
-@media (min-width: 1401px) and (max-width: 1600px) {
-  #menu_bar {
-    padding-top: 8%;
-    padding-bottom: 1%;
-  }
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
   #menu_bar h3 {
     font-size: 1.2rem;
   }
@@ -1784,10 +1639,7 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #dashboard {
     padding-top: 8%;
   }
-<<<<<<< HEAD
   #informacion .info_d .down .galeria img {
     height: 60%;
   }
-=======
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 }/*# sourceMappingURL=style.css.map */

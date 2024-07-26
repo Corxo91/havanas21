@@ -7,11 +7,7 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', include('login.urls')),
     path('client/', include('cliente.urls')),
-<<<<<<< HEAD
     path('administrador/', include('administrator.urls')),
-=======
-    path('administrador/', include('administrator.urls'))
->>>>>>> 800db762a542d7ba1511d3ceaf6b32a37e3cc2ec
 ]
 
 if settings.DEBUG:
