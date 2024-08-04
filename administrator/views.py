@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Receta, Ingredient, GaleryWorck, RecipeGaleryW, GaleryClient, RecipeGaleryC
 from django.contrib.auth.decorators import login_required
+import os
 
 @login_required
 def admin(request):
@@ -126,6 +127,7 @@ def changeEdit(request):
         price_alter = request.POST.get('price_alter')
         time_out = request.POST.get('time_out')
         counter = request.POST.get('counter')
+        imagen = request.FILES.get('imagen')
         cont = int(counter)+1
         
         for i in range(1, cont):
@@ -133,9 +135,18 @@ def changeEdit(request):
             ingredient_amount = request.POST.get(f'amount{i}')
             id_ingre = request.POST.get(f'id_ingre{i}')
             Ingredient.objects.filter(id=id_ingre).update(name=ingredient_name, amount=ingredient_amount)
-
+            
+        if  'imagen' in request.FILES:
+            receta = Receta.objects.get(id=id_receta)
+            if receta.imagen and imagen:
+            # Si la imagen cambia, elimina la antigua
+                if os.path.isfile(receta.imagen.path):
+                    os.remove(receta.imagen.path)
+            receta.imagen = imagen
+            receta.save()
+                    
         Receta.objects.filter(id=id_receta).update(recipe=recipe, descrip=descrip, steps=steps, price=price, price_alter=price_alter, time_out=time_out)
-        
+            
     return redirect('admin')
 
 def editGW(request):

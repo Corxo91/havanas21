@@ -25,7 +25,8 @@
                         <br>
                         {% for ingrediente in ingredientes %}
                             <li>
-                                <h4>{{ingrediente.name}}: {{ingrediente.amount}}</h4>
+                                <h4 class="inge_inge">{{ingrediente.name}}</h4>
+                                <h4 class="amount_amount">{{ingrediente.amount}}</h4>
                             </li>
                         {% endfor %}
                     </ul>
@@ -75,14 +76,15 @@
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title" id="exampleModalLabel">Preparación</h1>
+                  <h1 class="modal-title" id="exampleModalLabel">Ingredientes</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <ul class="ul-ing-modal">
                         {% for ingrediente in ingredientes %}
                             <li>
-                                <h4 class="text-center">{{ingrediente.name}}: {{ingrediente.amount}}</h4>
+                                <h4 class="ingre">{{ingrediente.name}}</h4>
+                                <h4 class="amou">{{ingrediente.amount}}</h4>
                             </li>
                         {% endfor %}
                     </ul>
@@ -94,7 +96,7 @@
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title" id="exampleModalLabel">Preparación</h1>
+                  <h1 class="modal-title" id="exampleModalLabel">Descripción</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

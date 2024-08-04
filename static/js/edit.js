@@ -1,4 +1,4 @@
-document.getElementById('formulario').addEventListener('submit', function(event) {
+document.getElementById('formulario').addEventListener('submit', function(event) {  
     event.preventDefault();
 
     let recipe = document.getElementById('recipe');
@@ -70,6 +70,9 @@ document.getElementById('most').addEventListener('click', function() {
 document.getElementById('mostC').addEventListener('click', function() {
     document.getElementById('photoC').click();
 });
+document.getElementById('camarera').addEventListener('click', function () { 
+    document.getElementById('photo_pirncipal').click();
+})
 
 let cerrar = document.querySelectorAll('.cerrar')
 

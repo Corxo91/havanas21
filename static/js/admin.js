@@ -51,7 +51,7 @@ function addIngredientField2() {
 
   // Crear un nuevo div para el nuevo campo de ingrediente
   let newIngredientDiv = document.createElement('div');
-  newIngredientDiv.classList.add('input-group', 'mb-3', 'inputI');
+  newIngredientDiv.classList.add('input-group', 'mb-3', 'inputII');
 
   // Crear el nuevo campo de ingrediente
   let newIngredientLabel = document.createElement('span');
@@ -89,6 +89,20 @@ function removeIngredientField() {
 
     // Remover el div del formulario
     lastIngredientDiv.parentNode.removeChild(lastIngredientDiv);
+
+    // Decrementar el contador de ingredientes
+    ingredientCounter--;
+  }
+}
+
+function removeIngredientField2() {
+  if (ingredientCounter > 3) {
+    // Seleccionar el último div con la clase 'inputI'
+    let lastIngredientDiv2 = document.querySelectorAll('.inputII')[ingredientCounter - 1];
+
+    // Remover el div del formulario
+    console.log(lastIngredientDiv2);
+    lastIngredientDiv2.parentNode.removeChild(lastIngredientDiv2);
 
     // Decrementar el contador de ingredientes
     ingredientCounter--;
