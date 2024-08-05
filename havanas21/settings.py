@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-ip)(xunjiq=r6^(uhe&x05gu3ea#t=kc1o(esg&js-ss0kbspy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hv21.pythonanywhere.com']
 
 
 # Application definition
@@ -53,7 +53,7 @@ ROOT_URLCONF = 'havanas21.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR,'templates' )],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,12 +74,12 @@ WSGI_APPLICATION = 'havanas21.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        "NAME": "h21",
-        "USER": "postgres",
-        "PASSWORD": "postgre",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        'ENGINE': 'django.db.backends.mysql',
+        "NAME": "hv21$default",
+        "USER": "hv21",
+        "PASSWORD": "havanas21_db",
+        "HOST": "hv21.mysql.pythonanywhere-services.com",
+        "PORT": "3306",
     }
 }
 
@@ -136,4 +136,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 AUTH_USER_MODEL = 'login.User'
 
 LOGOUT_REDIRECT_URL = 'bienvenida'
-
