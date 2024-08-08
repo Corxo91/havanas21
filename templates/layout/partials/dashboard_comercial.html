@@ -1,0 +1,142 @@
+{% load static %}
+<div class="container-fluid" id="nav_contenido">
+  <h3 class="text-center text-bg-danger">Comercial {{user|capfirst}}</h3>
+  <ul>
+      <li>
+          <a href="#kickchen">Cocina</a>
+      </li>
+      <li>
+          <a href="#bar">Bar</a>
+      </li>
+  </ul>
+</div>
+<div class="container-fluid" id="contenido">
+    <div id="kickchen">
+      <h2> Cocina </h2>
+      <div class="nav-dashboard container-fluid w-100">
+          <ul>
+              <li><a id="returnCarta" onclick="returnCarta()" class="cartas over">Carta Restaurante</a></li>
+          </ul>
+      </div>
+      <div class="container-fluid my-5">
+        <div class="row">
+          <div class="col-12-">
+            <table id="example" class="table compact display nowrap table-bordered mt-3" cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                    <th>Plato</th>
+                    <th>Opciones</th>
+                    <th>Disponible</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Precio Alternativo</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for recestas in receta %}
+                <tr>
+                    <td>{{recestas.recipe}}</td>
+                    <td><div class="opRecipe">
+                      <form action="{% url "edit" %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id_receta" value="{{recestas.id}}">
+                        <button type="submit">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="edit"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"></path><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"></path></svg>
+                        </button>
+                      </form>
+                      
+                      {% if recestas.active == "Sí" %}
+                      <form action="{% url "status" %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id_receta" value="{{recestas.id}}">
+                        <button type="submit">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.207 12.793-1.414 1.414L12 13.414l-2.793 2.793-1.414-1.414L10.586 12 7.793 9.207l1.414-1.414L12 10.586l2.793-2.793 1.414 1.414L13.414 12l2.793 2.793z"></path></svg>
+                        </button>
+                      </form>
+                      {% else %}
+                      <form action="{% url "status" %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id_receta" value="{{recestas.id}}">
+                        <button type="submit">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="active"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z"></path></svg>
+                        </button>
+                      </form>
+                      {% endif %}
+                    </div></td>
+                    <td>{{recestas.active}}</td>
+                    <td>{{recestas.category}}</td>
+                    <td>{{recestas.price}} cup</td>
+                    <td>{{recestas.price_alter}} usd</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="bar">
+      <h2> Bar </h2>
+      <div class="nav-dashboard container-fluid w-100">
+          <ul>
+              <li><a id="returnCarta" onclick="returnCartaBar()" class="cartas over">Carta Bar</a></li>
+          </ul>
+      </div>
+      <div class="container-fluid my-5">
+        <div class="row">
+          <div class="col-12-">
+            <table id="exampleBar" class="table compact display nowrap table-bordered mt-3" cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Opciones</th>
+                    <th>Disponible</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Precio Alternativo</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for tragos in trago %}
+                <tr>
+                    <td>{{tragos.recipe}}</td>
+                    <td><div class="opRecipe">
+                      <form action="{% url "edit" %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id_receta" value="{{tragos.id}}">
+                        <button type="submit">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="edit"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"></path><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"></path></svg>
+                        </button>
+                      </form>
+                      
+                      {% if tragos.active == "Sí" %}
+                      <form action="{% url "status" %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id_receta" value="{{tragos.id}}">
+                        <button type="submit">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="delete"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.207 12.793-1.414 1.414L12 13.414l-2.793 2.793-1.414-1.414L10.586 12 7.793 9.207l1.414-1.414L12 10.586l2.793-2.793 1.414 1.414L13.414 12l2.793 2.793z"></path></svg>
+                        </button>
+                      </form>
+                      {% else %}
+                      <form action="{% url "status" %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id_receta" value="{{tragos.id}}">
+                        <button type="submit">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="active"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z"></path></svg>
+                        </button>
+                      </form>
+                      {% endif %}
+                    </div></td>
+                    <td>{{tragos.active}}</td>
+                    <td>{{tragos.category}}</td>
+                    <td>{{tragos.price}} cup</td>
+                    <td>{{tragos.price_alter}} usd</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

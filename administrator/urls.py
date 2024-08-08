@@ -11,6 +11,9 @@ urlpatterns = [
     path('changeEdit/', views.changeEdit, name='changeEdit'),
     path('photoEdit/', views.editGW, name='editGW'),
     path('photoEditC/', views.editGC, name='editGC'),
+    path('createUser/', views.createUser, name='createUser'),
+    path('deleteUser/', views.deleteUser, name='deleteUser'),
+    path('changePassword/', views.changePassword, name='changePassword'),
 ]
 
 if settings.DEBUG:

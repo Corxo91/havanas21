@@ -14,10 +14,10 @@ class Ingredient(models.Model):
 
 class Receta(models.Model):
     recipe = models.CharField(max_length=75, null=False, blank=False, verbose_name="Nombre")
-    price = models.IntegerField(null=False, blank=False)
-    price_alter = models.IntegerField(null=False, blank=False)
+    price = models.FloatField(null=False, blank=False)
+    price_alter = models.FloatField(null=False, blank=False)
     descrip = models.CharField(max_length=195, null=False, blank=False)
-    time_out = models.IntegerField(null=False, blank=False)
+    time_out = models.CharField(max_length=7,null=False, blank=False)
     imagen = models.ImageField(upload_to='recipeIMG/', null=False, blank=False)
     steps = models.CharField(max_length=1500, null=False, blank=False)
     ingredients = models.ManyToManyField(Ingredient, through='RecipeIngredient', related_name='recetas')

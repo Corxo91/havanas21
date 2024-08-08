@@ -1,7 +1,12 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
+from django.conf import settings
+from django.core.files.storage import default_storage
 from .models import Receta, Ingredient, GaleryWorck, RecipeGaleryW, GaleryClient, RecipeGaleryC
+from login.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 import os
+
 
 @login_required
 def admin(request):
@@ -9,11 +14,13 @@ def admin(request):
     trago = Receta.objects.filter(place="Bar")
     actived = Receta.objects.filter(active="Sí", place="Restaurante")
     activedB = Receta.objects.filter(active="Sí", place="Bar")
+    users = User.objects.all().order_by('username')
     context = {
         'receta': receta,
         'trago': trago,
         'actived': actived,
-        'activedB': activedB
+        'activedB': activedB,
+        'users': users,
     }
     return render(request, 'administrador.html', context)
 
@@ -44,6 +51,7 @@ def create_recipe(request):
             category=category,
             place=place
         )
+        
 
         #Crear las imágenes de trabajadores        
         for image in images:
@@ -66,6 +74,7 @@ def create_recipe(request):
                     amount=ingredient_amount
                 )
             recipe.ingredients.add(ingredient)
+        messages.success(request,f'Receta {name} creada exitosamente')    
         return redirect('admin')
     else:
         return render(request, "administrador.html")
@@ -115,7 +124,12 @@ def edit(request):
         'cont': cont,
         'conta': conta 
     }
-    return render(request, 'edit_recipe.html', context)
+    if request.user.if_admin:
+        return render(request, 'edit_recipe.html', context)
+    elif request.user.if_comercial:
+        return render(request, 'edit_comercial.html', context)
+    elif request.user.if_economica:
+        return render(request, 'edit_eco.html', context)
 
 def changeEdit(request):
     if request.method == 'POST':
@@ -161,6 +175,17 @@ def editGW(request):
         for e in range(1, cuent):
             id_img = request.POST.get(f'imagenID{e}')
             if id_img != 'null':
+                image = GaleryWorck.objects.get(id=id_img)               
+                # Construir la ruta del archivo en la carpeta media
+                file_name = f"{image.imagen}"  # Asumiendo que el nombre del archivo es igual al ID
+                file_path = f"{settings.MEDIA_ROOT}/{file_name}"
+                # Eliminar el archivo de imagen del sistema
+                try:
+                    if default_storage.exists(file_path):
+                        default_storage.delete(file_path)
+                except Exception as e:
+                    print(f"Error al eliminar el archivo {file_path}: {str(e)}")
+                
                 RecipeGaleryW.objects.filter(image_id=id_img).delete()
                 GaleryWorck.objects.filter(id=id_img).delete()
     
@@ -184,6 +209,17 @@ def editGC(request):
         for e in range(1, cuent):
             id_img = request.POST.get(f'imagenIDC{e}')
             if id_img != 'null':
+                image = GaleryClient.objects.get(id=id_img)               
+                # Construir la ruta del archivo en la carpeta media
+                file_name = f"{image.imagen}"  # Asumiendo que el nombre del archivo es igual al ID
+                file_path = f"{settings.MEDIA_ROOT}/{file_name}"
+                # Eliminar el archivo de imagen del sistema
+                try:
+                    if default_storage.exists(file_path):
+                        default_storage.delete(file_path)
+                except Exception as e:
+                    print(f"Error al eliminar el archivo {file_path}: {str(e)}")
+                
                 RecipeGaleryC.objects.filter(image_id=id_img).delete()
                 GaleryClient.objects.filter(id=id_img).delete()
     
@@ -194,4 +230,105 @@ def editGC(request):
             galery.save()
             recipe.galery_client.add(galery)
             
+    return redirect('admin')
+
+def createUser(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('repass').encode()
+        rol = request.POST.get('rol')
+        if rol == 'if_cocina':
+            user = User.objects.create_user(
+                username=username,
+                if_cocina=True,
+                if_bar=False,
+                is_superuser=False,
+                if_admin=False,
+                if_comercial=False,
+                if_economica=False,
+            )
+            user.set_password(password)
+            user.save()
+            messages.success(request,f'Usuario {username} cocina creado exitosamente.')
+        elif rol == 'if_bar':
+            user = User.objects.create_user(
+                username=username,
+                if_cocina=False,
+                if_bar=True,
+                is_superuser=False,
+                if_admin=False,
+                if_comercial=False,
+                if_economica=False,
+            )
+            user.set_password(password)
+            user.save()
+            messages.success(request,f'Usuario {username} bar creado exitosamente.')
+        elif rol == 'if_comercial':
+            user = User.objects.create_user(
+                username=username,
+                if_cocina=False,
+                if_bar=False,
+                is_superuser=False,
+                if_admin=False,
+                if_comercial=True,
+                if_economica=False,
+                )
+            user.set_password(password)
+            user.save()
+            messages.success(request,f'Usuario {username} comercial creado exitosamente.')
+        elif rol == 'if_economica':
+            user = User.objects.create_user(
+                    username=username,
+                    if_cocina=False,
+                    if_bar=False,
+                    is_superuser=False,
+                    if_admin=False,
+                    if_comercial=False,
+                    if_economica=True,
+                    )
+            user.set_password(password)
+            user.save()
+            messages.success(request,f'Usuario {username} económica creado exitosamente.')
+        else:
+            user = User.objects.create_user(
+                    username=username,
+                    if_cocina=False,
+                    if_bar=False,
+                    is_superuser=True,
+                    if_admin=True,
+                    if_comercial=False,
+                    if_economica=False,
+                    )
+            user.set_password(password)
+            user.save()
+            messages.success(request,f'Usuario {username} administrador creado exitosamente.')
+
+    return redirect('admin')
+
+def deleteUser(request):
+    if request.method == 'POST':
+        user = request.POST.get('deleteUser')
+        usuario = User.objects.get(username=user)
+        if usuario.if_admin:
+            otros_admins = User.objects.filter(if_admin=True).exclude(id=usuario.id)
+            if otros_admins.exists():
+                User.objects.get(username=user).delete()
+                messages.success(request,f'Usuario eliminado exitosamente')
+            else:
+                messages.error(request,f'No hay más administradores, no se puede borrar su usuario')
+        else:    
+            User.objects.get(username=user).delete()
+            messages.success(request,f'Usuario eliminado exitosamente')
+        
+    return redirect('admin')
+
+def changePassword(request):
+    if request.method == 'POST':
+        ussr = request.POST.get('passwordReset')
+        new_password = request.POST.get('repasword').encode()
+        
+        user = User.objects.get(username=ussr)
+        user.set_password(new_password)
+        user.save()
+        messages.success(request,f'Se ha actualizado correctamente la clave.')
     return redirect('admin')

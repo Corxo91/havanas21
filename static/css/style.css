@@ -314,6 +314,81 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   color: var(--identityColor);
   font-size: 1.2rem;
 }
+#dashboard #contenido #acounts {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 3%;
+}
+#dashboard #contenido #acounts .most_user {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+#dashboard #contenido #acounts .most_user svg {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+#dashboard #contenido #acounts .contenedor_cuentas {
+  width: 100%;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table {
+  margin-top: 1%;
+  width: 100%;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table tbody tr td {
+  margin-bottom: 0.5%;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table th, #dashboard #contenido #acounts .contenedor_cuentas table td {
+  cursor: default;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table .changeP {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table .changeP button {
+  border: none;
+  background-color: transparent;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table .changeP button svg {
+  width: 30px;
+  height: 30px;
+  color: var(--identityColor);
+}
+#dashboard #contenido #acounts .contenedor_cuentas table .changeP form {
+  display: none;
+  gap: 0.5rem;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table .changeP form button {
+  background-color: transparent;
+  border: none;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table .changeP form button svg {
+  color: green;
+  width: 30px;
+  height: 30px;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table .changeP form #repasword {
+  border-color: var(--identityColor);
+  padding: 1%;
+  color: var(--identityColor);
+}
+#dashboard #contenido #acounts .contenedor_cuentas table .userDelete form button {
+  background-color: transparent;
+  border: none;
+}
+#dashboard #contenido #acounts .contenedor_cuentas table .userDelete form button svg {
+  color: var(--identityColor);
+  width: 35px;
+  height: 35px;
+}
 #dashboard #contenido_carta {
   display: none;
   text-align: center;
@@ -836,15 +911,15 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
 }
 
 .fondo {
-  background: linear-gradient(90deg, rgba(144, 26, 60, 0.3) 0%, rgba(144, 26, 60, 0.3) 100%), url(../assets/images/index_fondo.jfif);
+  background: linear-gradient(90deg, rgba(144, 26, 60, 0.3) 0%, rgba(144, 26, 60, 0.3) 100%), url(../assets/images/index_fondo.jpg);
 }
 
 .gradientR {
-  background: linear-gradient(90deg, rgba(144, 26, 60, 0.6) 0, rgba(144, 26, 60, 0.3) 60%), url(../assets/images/index_fondo.jfif);
+  background: linear-gradient(90deg, rgba(144, 26, 60, 0.6) 0, rgba(144, 26, 60, 0.3) 60%), url(../assets/images/index_fondo.jpg);
 }
 
 .gradientL {
-  background: linear-gradient(-90deg, rgba(144, 26, 60, 0.6) 0, rgba(144, 26, 60, 0.3) 60%), url(../assets/images/index_fondo.jfif);
+  background: linear-gradient(-90deg, rgba(144, 26, 60, 0.6) 0, rgba(144, 26, 60, 0.3) 60%), url(../assets/images/index_fondo.jpg);
 }
 
 .modal-dialog {
@@ -1085,7 +1160,7 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   }
 }
 /*Móviles sm*/
-@media (min-width: 374px) and (max-width: 450px) {
+@media (max-width: 450px) {
   #agg {
     font-size: 0.8rem;
   }
@@ -1178,6 +1253,24 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #dashboard .edit_all form .datos_form textarea {
     font-size: 1rem;
   }
+  #dashboard #contenido #acounts .contenedor_cuentas table .changeP {
+    gap: 0;
+  }
+  #dashboard #contenido #acounts .contenedor_cuentas table .changeP form {
+    display: none;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  #dashboard #contenido #acounts .contenedor_cuentas table .changeP form #repasword {
+    border-color: var(--identityColor);
+    padding: 1%;
+    color: var(--identityColor);
+    width: 50%;
+  }
+  #dashboard #contenido #acounts .contenedor_cuentas table .rol {
+    display: none;
+  }
   #menu_bar #sobre_img .imi {
     width: 100%;
   }
@@ -1220,6 +1313,24 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   }
   #dashboard {
     padding-top: 17%;
+  }
+  #dashboard #contenido #acounts .contenedor_cuentas table .changeP {
+    gap: 0.5rem;
+  }
+  #dashboard #contenido #acounts .contenedor_cuentas table .changeP form {
+    display: none;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  #dashboard #contenido #acounts .contenedor_cuentas table .changeP form #repasword {
+    border-color: var(--identityColor);
+    padding: 1%;
+    color: var(--identityColor);
+    width: 100%;
+  }
+  #dashboard #contenido #acounts .contenedor_cuentas table .rol {
+    display: none;
   }
   #imagenes {
     grid-template-columns: repeat(3, 1fr);

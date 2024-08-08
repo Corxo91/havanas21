@@ -2,7 +2,7 @@
 <section id="todos">
   <h2 class="nShow mb-3" id="general">Resultados de la busqueda</h2>
   <div id="ep" class="cositas">
-    <h2 class="tittle" style="margin-bottom: 1%;">Entre Panes</h2>
+    {% if recipeEP %}<h2 class="tittle" style="margin-bottom: 1%;">Entre Panes</h2>{% endif %}
     <section id="cards">
       {% for productosEP in recipeEP %}
         <form id="target" action="{% url "info" %}" method="POST">
@@ -19,7 +19,7 @@
     </section>
   </div>
   <div id="ef" class="cositas">
-    <h2 class="tittle" style="margin-bottom: 1%;">Entrantes Fríos</h2>
+    {% if recipeEF %}<h2 class="tittle" style="margin-bottom: 1%;">Entrantes Fríos</h2>{% endif %}
     <section id="cards">
       {% for productosEF in recipeEF %}
         <form id="target" action="{% url "info" %}" method="POST">
@@ -36,7 +36,7 @@
     </section>
   </div>
   <div id="ec" class="cositas">
-    <h2 class="tittle" style="margin-bottom: 1%;">Entrantes Calientes</h2>
+    {% if recipeEC %}<h2 class="tittle" style="margin-bottom: 1%;">Entrantes Calientes</h2>{% endif %}
     <section id="cards">
       {% for productosEC in recipeEC %}
         <form id="target" action="{% url "info" %}" method="POST">
@@ -53,7 +53,7 @@
     </section>
   </div>
   <div id="ci" class="cositas">
-    <h2 class="tittle" style="margin-bottom: 1%;">Cocina Italiana</h2>
+    {% if recipeCI %}<h2 class="tittle" style="margin-bottom: 1%;">Cocina Italiana</h2>{% endif %}
     <section id="cards">
       {% for productosCI in recipeCI %}
         <form id="target" action="{% url "info" %}" method="POST">
@@ -70,7 +70,7 @@
     </section>
   </div>
   <div id="pf" class="cositas">
-    <h2 class="tittle" style="margin-bottom: 1%;">Platos Fuertes</h2>
+    {% if recipePF %}<h2 class="tittle" style="margin-bottom: 1%;">Platos Fuertes</h2>{% endif %}
     <section id="cards">
       {% for productosPF in recipePF %}
         <form id="target" action="{% url "info" %}" method="POST">
@@ -87,7 +87,7 @@
     </section>
   </div>
   <div id="guar" class="cositas">
-    <h2 class="tittle" style="margin-bottom: 1%;">Guarniciones</h2>
+    {% if recipeG %}<h2 class="tittle" style="margin-bottom: 1%;">Guarniciones</h2>{% endif %}
     <section id="cards">
       {% for productosG in recipeG %}
         <form id="target" action="{% url "info" %}" method="POST">
@@ -104,7 +104,7 @@
     </section>
   </div>
   <div id="pos" class="cositas">
-    <h2 class="tittle" style="margin-bottom: 1%;">Postres</h2>
+    {% if recipeP %}<h2 class="tittle" style="margin-bottom: 1%;">Postres</h2>{% endif %}
     <section id="cards">
       {% for productosP in recipeP %}
         <form id="target" action="{% url "info" %}" method="POST">
@@ -114,6 +114,23 @@
             <img src="{{productosP.imagen.url}}" alt="" id="img" />
             <div id="note">
                 <h5>{{productosP.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="suge" class="cositas">
+    {% if recipeS %}<h2 class="tittle" style="margin-bottom: 1%;">Sugerencias</h2>{% endif %}
+    <section id="cards">
+      {% for productosS in recipeS %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosS.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosS.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosS.recipe}}</h5>
             </div>
           </button>
         </form>

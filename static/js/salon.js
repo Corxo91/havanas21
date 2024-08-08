@@ -5,6 +5,7 @@ let ci = document.getElementById('ci');
 let pf = document.getElementById('pf');
 let guar = document.getElementById('guar');
 let pos = document.getElementById('pos');
+let suge = document.getElementById('suge');
 let btnClose = document.getElementById('btnClose');
 
 let ops = [ep,ef,ec,ci,pf,guar,pos];
@@ -84,6 +85,16 @@ function filtrar(id) {
         ops[i].classList.remove('nShow');
       }
       if(ops[i] != pos) {
+        ops[i].classList.toggle('nShow');
+        btnClose.click();
+      }
+    }
+  } else if (id == "op8") {
+    for (let i = 0; i < ops.length; i++) {
+      if(ops[i].classList.contains('nShow')) {
+        ops[i].classList.remove('nShow');
+      }
+      if(ops[i] != suge) {
         ops[i].classList.toggle('nShow');
         btnClose.click();
       }

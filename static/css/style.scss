@@ -320,6 +320,89 @@
                 }
             }
         }
+        #acounts {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            margin-bottom: 3%;
+            .most_user {
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                svg {
+                    width: 50px;
+                    height: 50px;
+                    cursor: pointer;
+                }
+            }
+            .contenedor_cuentas {
+                width: 100%;
+                table{
+                    margin-top: 1%;
+                    width: 100%;
+                    tbody {
+                        tr{
+                            td{
+                                margin-bottom: 0.5%;
+                            }
+                        }
+                    }
+                    th, td {
+                        cursor: default;
+                    }
+                    .changeP {
+                        display: flex;
+                        gap: 0.5rem;
+                        justify-content: center;
+                        align-items: center;
+                        button{
+                            border: none;
+                            background-color: transparent;
+                            svg{
+                                width: 30px;
+                                height: 30px;
+                                color: var(--identityColor);
+                            }
+                        }
+                        form{
+                            display: none;
+                            gap: 0.5rem;
+                            button {
+                                background-color: transparent;
+                                border: none;
+                                svg {
+                                    color: green;
+                                    width: 30px;
+                                    height: 30px;
+                                }
+                            }
+                            #repasword {
+                                border-color: var(--identityColor);
+                                padding: 1%;
+                                color: var(--identityColor);
+                            }
+                        }
+                    }
+                    .userDelete {
+                        form{
+                            button{
+                                background-color: transparent;
+                                border: none;
+                                svg {
+                                    color: var(--identityColor);
+                                    width: 35px;
+                                    height: 35px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     #contenido_carta {
         display: none;
@@ -850,18 +933,18 @@
   .fondo {
     background: 
     linear-gradient(90deg, rgba(144,26,60,0.3) 0%, rgba(144,26,60,0.3) 100%),
-    url(../assets/images/index_fondo.jfif);
+    url(../assets/images/index_fondo.jpg);
   }
 
   .gradientR {
     background: 
     linear-gradient(90deg, rgba(144,26,60,0.6) 0, rgba(144,26,60,0.3) 60%),
-    url(../assets/images/index_fondo.jfif);
+    url(../assets/images/index_fondo.jpg);
   }
   .gradientL {
     background: 
     linear-gradient(-90deg, rgba(144,26,60,0.6) 0, rgba(144,26,60,0.3) 60%),
-    url(../assets/images/index_fondo.jfif);
+    url(../assets/images/index_fondo.jpg);
   }
 
   .modal-dialog {
@@ -1152,7 +1235,7 @@
 }
 
 /*Móviles sm*/
-@media (min-width: 374px) and (max-width: 450px) {
+@media (max-width: 450px) {
     #agg {
         font-size: 0.8rem;
     }
@@ -1270,6 +1353,32 @@
             }
     
         }
+        #contenido {
+            #acounts {
+                .contenedor_cuentas {
+                    table{
+                        .changeP {
+                            gap: 0;
+                            form{
+                                display: none;
+                                gap: 0.5rem;
+                                justify-content: center;
+                                align-items: center;
+                                #repasword {
+                                    border-color: var(--identityColor);
+                                    padding: 1%;
+                                    color: var(--identityColor);
+                                    width: 50%;
+                                }
+                            }
+                        }
+                        .rol {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
     }
     #menu_bar {
         #sobre_img {
@@ -1322,6 +1431,32 @@
     }
     #dashboard {
         padding-top: 17%;
+        #contenido {
+            #acounts {
+                .contenedor_cuentas {
+                    table{
+                        .changeP {
+                            gap: 0.5rem;
+                            form{
+                                display: none;
+                                gap: 0.5rem;
+                                justify-content: center;
+                                align-items: center;
+                                #repasword {
+                                    border-color: var(--identityColor);
+                                    padding: 1%;
+                                    color: var(--identityColor);
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        .rol {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
     }
     #imagenes {
         grid-template-columns: repeat(3, 1fr);

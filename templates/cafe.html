@@ -7,7 +7,7 @@
 <section id="todos">
   <h2 class="nShow mb-3 text-center" id="general">Resultados de la busqueda</h2>
   <div class="cositas" id="ep">
-    <h2 class="tittle  mb-2 text-center">Cócteles</h2>
+    {% if barEf %}<h2 class="tittle  mb-2 text-center">Cócteles</h2>{% endif %}
     <section id="menu_bar">
       {% for productosEf in barEf %}
       <article id="cards_bar">
@@ -51,7 +51,7 @@
     </section>
   </div>
   <div class="cositas" id="ef">
-    <h2 class="tittle  mb-2 text-center">Cafés</h2>
+    {% if barEp %}<h2 class="tittle  mb-2 text-center">Cafés</h2>{% endif %}
     <section id="menu_bar">
       {% for productosEP in barEp %}
       <article id="cards_bar">

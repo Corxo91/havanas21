@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  let ingredientCounter = 3; // Empezamos con 3 campos por defecto
+  let ingredientCounter = 1; // Empezamos con 3 campos por defecto
 
 function addIngredientField() {
   ingredientCounter++;
@@ -83,7 +83,7 @@ function addIngredientField2() {
 }
 
 function removeIngredientField() {
-  if (ingredientCounter > 3) {
+  if (ingredientCounter > 1) {
     // Seleccionar el último div con la clase 'inputI'
     let lastIngredientDiv = document.querySelectorAll('.inputI')[ingredientCounter - 1];
 
@@ -96,7 +96,7 @@ function removeIngredientField() {
 }
 
 function removeIngredientField2() {
-  if (ingredientCounter > 3) {
+  if (ingredientCounter > 1) {
     // Seleccionar el último div con la clase 'inputI'
     let lastIngredientDiv2 = document.querySelectorAll('.inputII')[ingredientCounter - 1];
 
@@ -136,3 +136,31 @@ function returnCartaBar() {
   cartaBar.style.display = "block";
   nav.style.display = "none";
 }
+
+//para el change de clave
+document.addEventListener('DOMContentLoaded', function() {
+  // Selecciona todos los botones con la clase 'changePB'
+  var buttons = document.querySelectorAll('.changePB');
+
+  // Itera sobre cada botón
+  buttons.forEach(function(button) {
+      // Al hacer clic en el botón, selecciona el contenedor padre con la clase 'changeP'
+      button.addEventListener('click', function(event) {
+          var container = event.target.closest('.changeP');
+          
+          // Ahora que tienes el contenedor, selecciona el formulario dentro de él
+          var form = container.querySelector('.formChangeP');
+
+          // Realiza acciones con el formulario si es necesario
+          if (form.classList.contains('si')) {
+            form.classList.remove('si')
+            form.style.display = 'none'
+          } else {
+            form.classList.add('si')
+            form.style.display = 'flex'
+          }
+      });
+  });
+});
+
+
