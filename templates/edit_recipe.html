@@ -1,0 +1,158 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block header %}
+    {% include "layout/partials/nav_admin.html" %}
+{% endblock  %}
+{% block main %}
+    <div class="container-fluid" id="dashboard">
+        <div class="edit_all">
+            <form action="{% url "changeEdit" %}" method="POST" id="formulario" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="id_recipe" value="{{recipe.id}}">
+                <div class="img">
+                    <img src="{{recipe.imagen.url}}" alt="{{recipe.recipe}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="camarera">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+                    </svg>                      
+                    <input type="file" name="imagen" id="photo_pirncipal" style="display: none;" data-image="{{recipe.imagen.url}}">
+                </div>
+                <div class="datos_form">
+                    <label for="recipe">Nombre de la receta</label>
+                    <input id="recipe" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.recipe}}" value="{{recipe.recipe}}" aria-label=".form-control-lg example" name="recipe">
+                    <br>
+                    <label for="descrip">Descripción <span id="charCount">0/195</span></label>
+                    <textarea id="descrip" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="{{recipe.descrip}}" name="descrip">{{recipe.descrip}}</textarea>
+                    <br>
+                    <label for="steps">Pasos</label>
+                    <textarea id="steps" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3" placeholder="{{recipe.steps}}" name="steps">{{recipe.steps}}</textarea>
+                    <br>
+                    <div class="ultimosDatos">
+                        <div class="divF">
+                            <label for="price">Precio</label>
+                            <input id="price" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.price}}" value="{{recipe.price}}" aria-label=".form-control-lg example" name="price">
+                        </div>
+                        <div class="divC">
+                            <label for="price_alter">Precio Alternativo</label>
+                            <input id="price_alter" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.price_alter}}" value="{{recipe.price_alter}}" aria-label=".form-control-lg example" name="price_alter">
+                        </div>
+                        <div class="divL">
+                            <label for="time_out" class="to">Preparación(min)</label>
+                            <input id="time_out" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.time_out}}" value="{{recipe.time_out}}" aria-label=".form-control-lg example" name="time_out">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ingredients">
+                        {% for ingredient in ingrediens %}
+                            <div class="ingredientes">
+                                <div>
+                                    <label>Ingrediente {{ forloop.counter }}</label>
+                                    <input id="ing{{ forloop.counter }}" class="form-control form-control-lg rounded-0" type="text" placeholder="{{ingredient.name}}" value="{{ingredient.name}}" aria-label=".form-control-lg example" name="ingredient{{forloop.counter}}">
+                                </div>
+                                <div>
+                                    <label>Cantidad</label>
+                                    <input id="cant{{ forloop.counter }}" class="form-control form-control-lg rounded-0" type="text" placeholder="{{ingredient.amount}}" value="{{ingredient.amount}}" aria-label=".form-control-lg example" name="amount{{forloop.counter}}">
+                                </div>
+                                <input type="hidden" name="id_ingre{{forloop.counter}}" value="{{ingredient.id}}">
+                            </div>
+                            <br>
+                        {% endfor %}
+                        <input type="hidden" name="counter" value={{contador}} id="iteraciones">
+                    </div>
+                    <br>
+                </div>
+                <div class="float-end" id="botones">
+                    <button class="btn btn-primary rounded-0 float-end" data-bs-toggle="modal" data-bs-target="#galeriaW" type="button">Galería</button>
+                    <button class="btn btn-secondary rounded-0 float-end" data-bs-toggle="modal" data-bs-target="#galeriaC" type="button">Mostrador</button>
+                    <a href="{% url "admin" %}" class="btn btn-danger rounded-0 float-end">Cancelar</a>
+                    <input type="submit" value="Guardar" class="btn btn-success rounded-0">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade" id="galeriaW" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <form action="{% url "editGW" %}" id="formularioo" method="POST" enctype="multipart/form-data" class="modal-fullscreen">
+            {% csrf_token %}
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Galería de trabajo</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="imagenes">
+                        <input type="file" name="photos[]" id="photoW" multiple>
+                        <div class="imagen" id="most">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>                              
+                        </div>
+                        {% for imagenes in imagesW %}
+                            <div class="imagen">
+                                <div class="cerrar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cruz">
+                                        <path class="path" stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                    </svg>
+                                    <div data-id="{{imagenes.id}}" class="id"></div>
+                                    <input type="hidden" class="imagenID" id="imageID{{forloop.counter}}" name="imagenID{{forloop.counter}}" value="">
+                                </div>
+                                <img src="{{imagenes.imagen.url}}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <input type="hidden" name="cuenta" id="itera"  value="{{cont}}">
+                  <input type="hidden" name="id_recipe" value="{{recipe.id}}">  
+                  <button type="button" class="btn btn-danger rounded-0" data-bs-dismiss="modal">Cerrar</button>
+                  <input type="submit" class="btn btn-success rounded-0" value="Guardar">
+                </div>
+              </div>
+          </form>  
+        </div>
+    </div>
+    <div class="modal fade" id="galeriaC" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <form action="{% url "editGC" %}" id="formulariou" method="POST" enctype="multipart/form-data" class="modal-fullscreen">
+            {% csrf_token %}
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5">Galería de cliente</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="imagenesC">
+                        <input type="file" name="photosC[]" id="photoC" multiple>
+                        <div class="imagen" id="mostC">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>                              
+                        </div>
+                        {% for imagenesC in imagesC %}
+                            <div class="imagen">
+                                <div class="cerrar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cruz">
+                                        <path class="path" stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                    </svg>
+                                    <div data-id="{{imagenesC.id}}" class="id"></div>
+                                    <input type="hidden" class="imagenID" id="imageIDC{{forloop.counter}}" name="imagenIDC{{forloop.counter}}" value="">
+                                </div>
+                                <img src="{{imagenesC.imagen.url}}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <input type="hidden" name="cuentaC" id="iteraC"  value="{{conta}}">
+                  <input type="hidden" name="id_recipeC" value="{{recipe.id}}">  
+                  <button type="button" class="btn btn-danger rounded-0" data-bs-dismiss="modal">Cerrar</button>
+                  <input type="submit" class="btn btn-success rounded-0" value="Guardar">
+                </div>
+              </div>
+          </form>  
+        </div>
+    </div>
+{% endblock  %}
+{% block js %}
+    <script src="{% static "js/edit.js" %}"></script>
+{% endblock  %}

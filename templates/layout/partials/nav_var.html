@@ -1,0 +1,47 @@
+{% load static %}
+<nav class="navbar bg-body-tertiary fixed-top" id="header">
+    <div class="container-fluid" id="nav">
+      <a class="navbar-brand" href="{% url "logout" %}" id="logout">
+        <img src="{% static "assets/icon/Logo Cafe.png" %}" alt="Havana's 21" id="logo">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <div class="offcanvas-header">
+          <h4 class="offcanvas-title" id="offcanvasNavbarLabel">
+            Havana's 21
+          </h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+            id="btnClose"
+          ></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            {% include "layout/partials/ham_bar.html" %}
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Buscar"
+              aria-label="Search"
+              id="busqueda"
+            />
+        </div>
+      </div>
+    </div>
+  </nav>

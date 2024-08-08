@@ -1,0 +1,377 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block header %}
+  {% include "layout/partials/nav_salon.html" %}
+{% endblock  %}
+{% block main  %}
+<section id="todos">
+  <h2 class="nShow mb-3 text-center" id="general">Resultados de la busqueda</h2>
+  <div class="cositas" id="ep">
+    {% if salonEP %}
+      <h2 class="tittle mb-2 text-center">Entre Panes</h2>
+    {% endif %}
+    <section id="menu_bar">
+      {% for productosEP in salonEP %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="card border-0">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosEP.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosEP.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosEP.price}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosEP.price_alter}} usd</h5>
+                      </div>
+                    </div>
+                    <p>{{productosEP.descrip}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosEP.time_out}} minutos</small></p>
+                </div>
+                <!--<div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosEP.recipe}} galería</h3>
+                    </div>
+                    <p>carrusel</p>
+                  </div>
+                </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+  <div class="cositas" id="ef">
+    {% if salonEF %}
+    <h2 class="tittle mb-2 text-center">Entrantes Fríos</h2>
+    {% endif %}
+    <section id="menu_bar">
+      {% for productosEF in salonEF %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="card border-0">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosEF.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosEF.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosEF.price}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosEF.price_alter}} usd</h5>
+                      </div>
+                    </div>
+                    <p>{{productosEF.descrip}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosEF.time_out}} minutos</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+  <div class="cositas" id="ec">
+    {% if salonEC %}<h2 class="tittle mb-2 text-center">Entrantes Calientes</h2>{% endif %}
+    <section id="menu_bar">
+      {% for productosEC in salonEC %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="card border-0">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosEC.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosEC.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosEC.price}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosEC.price_alter}} usd</h5>
+                      </div>
+                    </div>
+                    <p>{{productosEC.descrip}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosEC.time_out}} minutos</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+  <div class="cositas" id="ci">
+    {% if salonCI %}<h2 class="tittle mb-2 text-center">Cocina Italiana</h2>{% endif %}
+    <section id="menu_bar">
+      {% for productosCI in salonCI %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="card border-0">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosCI.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosCI.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosCI.price}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosCI.price_alter}} usd</h5>
+                      </div>
+                    </div>
+                    <p>{{productosCI.descrip}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosCI.time_out}} minutos</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+  <div class="cositas" id="pf">
+    {% if salonPF %}<h2 class="tittle mb-2 text-center">Platos Fuertes</h2>{% endif %}
+    <section id="menu_bar">
+      {% for productosPF in salonPF %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="card border-0">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosPF.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosPF.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosPF.price}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosPF.price_alter}} usd</h5>
+                      </div>
+                    </div>
+                    <p>{{productosPF.descrip}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosPF.time_out}} minutos</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+  <div class="cositas" id="guar">
+    {% if salonG %}<h2 class="tittle mb-2 text-center">Guarniciones</h2>{% endif %}
+    <section id="menu_bar">
+      {% for productosG in salonG %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="card border-0">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosG.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosG.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosG.price}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosG.price_alter}} usd</h5>
+                      </div>
+                    </div>
+                    <p>{{productosG.descrip}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosG.time_out}} minutos</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+  <div class="cositas" id="pos">
+    {% if salonP %}<h2 class="tittle mb-2 text-center">Postres</h2>{% endif %}
+    <section id="menu_bar">
+      {% for productosP in salonP %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="card border-0">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosP.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosP.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosP.price}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosP.price_alter}} usd</h5>
+                      </div>
+                    </div>
+                    <p>{{productosP.descrip}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosP.time_out}} minutos</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+  <div class="cositas" id="suge">
+    {% if salonS %}<h2 class="tittle mb-2 text-center">Sugerencias</h2>{% endif %}
+    <section id="menu_bar">
+      {% for productosS in salonS %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="card border-0">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosS.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosS.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosS.price}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosS.price_alter}} usd</h5>
+                      </div>
+                    </div>
+                    <p>{{productosS.descrip}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosS.time_out}} minutos</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+</section>
+{% endblock  %}
+{% block js %}
+<script src="{% static "js/salon.js" %}"></script>
+{% endblock  %}

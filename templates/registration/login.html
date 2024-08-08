@@ -1,0 +1,22 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<div class="modal fade" id="loginForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <h1 class="modal-title fs-3" id="exampleModalLabel">Iniciar Sesión</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'login' %}" method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            {{ form | crispy }}
+          </div>
+          <input type="submit" value="Iniciar Sesión" class="btn btn-danger rounded-0 opacity-75 float-end" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+{% load static %}
+<section id="todos">
+  <h2 class="nShow" id="general">Resultados de la busqueda</h2>
+  <div id="ep" class="cositas">
+    {% if recipeCo %}<h2 class="tittle" style="margin-bottom: 1%;">Cócteles</h2>{% endif %}
+    <section id="cards">
+      {% for productosEP in recipeCo %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosEP.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosEP.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosEP.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="ef" class="cositas">
+    {% if recipeCa %}<h2 class="tittle" style="margin-bottom: 1%;">Cafés</h2>{% endif %}
+    <section id="cards">
+      {% for productosEF in recipeCa %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosEF.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosEF.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosEF.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+</section>

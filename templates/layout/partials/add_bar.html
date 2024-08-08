@@ -1,0 +1,72 @@
+{% load static %}
+
+<div class="modal fade" id="recipeFormBar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content rounded-0">
+        <div class="modal-header">
+          <h1 class="modal-title fs-3" id="exampleModalLabel">Agregar</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url "add" %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+              <div class="mb-3">
+                  <label for="formFileSm" class="form-label">Imagen</label>
+                  <input class="form-control form-control-sm border border-danger-subtle" id="formFileSm" type="file" name="imagen" required>
+              </div>
+              <div class="input-group mb-3">
+                  <span class="input-group-text border border-danger-subtle" id="inputGroup-sizing-default">Nombre</span>
+                  <input type="text" class="form-control border border-danger-subtle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="name" required>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text border border-danger-subtle">Descripcion</span>
+                <textarea class="form-control border border-danger-subtle" aria-label="With textarea" name="descript" required></textarea>
+              </div>
+              <div class="input-group mb-3">
+                  <span class="input-group-text border border-danger-subtle">Precio</span>
+                  <input type="text" class="form-control border border-danger-subtle" aria-label="Precio del Plato" name="price" required>
+              </div>
+              <div class="input-group mb-3">
+                  <span class="input-group-text border border-danger-subtle">Precio Alternativo</span>
+                  <input type="text" class="form-control border border-danger-subtle" aria-label="Precio Alternativo" name="alter" required>
+              </div>
+              <div class="input-group mb-3">
+                  <span class="input-group-text border border-danger-subtle" id="inputGroup-sizing-default">Tiempo de Preparación(min)</span>
+                  <input type="text" class="form-control border border-danger-subtle" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="time" required>
+              </div>
+              <div class="input-group mb-3">
+                  <span class="input-group-text border border-danger-subtle">Pasos</span>
+                  <textarea class="form-control border border-danger-subtle" aria-label="With textarea" name="steps" required></textarea>
+              </div>
+              <div class="input-group mb-3">
+                  <label class="input-group-text border border-danger-subtle" for="inputGroupSelect01">Categoría</label>
+                  <select class="form-select border border-danger-subtle" id="inputGroupSelect01" name="category">
+                    <option selected>Seleccione una categoría</option>
+                    <option value="Bebidas">Bebidas</option>
+                    <option value="Cafés">Cafés</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                <label for="images[]">Imágenes Bar</label>
+                <input class="form-control form-control-sm border border-danger-subtle" type="file" name="images[]" id="imageW" multiple>
+              </div>  
+              <div class="mb-3">
+                <label for="imagesC[]">Imágenes Clientes</label>
+                <input class="form-control form-control-sm border border-danger-subtle" type="file" name="imagesC[]" id="imageC" multiple>
+              </div>  
+              <div class="input-group mb-3 inputII">
+                  <span class="input-group-text border border-danger-subtle">Ingrediente y Cantidad</span>
+                  <input type="text" aria-label="First name" class="form-control border border-danger-subtle" name="ing1" required>
+                  <input type="text" aria-label="Last name" class="form-control border border-danger-subtle" name="cant1" required>
+              </div>
+              <input type="hidden" name="lugar" value="Bar" class="ultimo2">
+            <button type="button" class="btn btn-success rounded-0 opacity-75" onclick="addIngredientField2()">Otro Ingrediente</button>
+            <button type="button" class="btn btn-warning rounded-0 opacity-75" onclick="removeIngredientField2()">Eliminar</button>
+            <button type="submit" class="btn btn-danger rounded-0 opacity-75 float-end">Agregar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+</div>

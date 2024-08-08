@@ -1,0 +1,140 @@
+{% load static %}
+<section id="todos">
+  <h2 class="nShow mb-3" id="general">Resultados de la busqueda</h2>
+  <div id="ep" class="cositas">
+    {% if recipeEP %}<h2 class="tittle" style="margin-bottom: 1%;">Entre Panes</h2>{% endif %}
+    <section id="cards">
+      {% for productosEP in recipeEP %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosEP.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosEP.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosEP.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="ef" class="cositas">
+    {% if recipeEF %}<h2 class="tittle" style="margin-bottom: 1%;">Entrantes Fríos</h2>{% endif %}
+    <section id="cards">
+      {% for productosEF in recipeEF %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosEF.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosEF.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosEF.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="ec" class="cositas">
+    {% if recipeEC %}<h2 class="tittle" style="margin-bottom: 1%;">Entrantes Calientes</h2>{% endif %}
+    <section id="cards">
+      {% for productosEC in recipeEC %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosEC.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosEC.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosEC.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="ci" class="cositas">
+    {% if recipeCI %}<h2 class="tittle" style="margin-bottom: 1%;">Cocina Italiana</h2>{% endif %}
+    <section id="cards">
+      {% for productosCI in recipeCI %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosCI.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosCI.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosCI.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="pf" class="cositas">
+    {% if recipePF %}<h2 class="tittle" style="margin-bottom: 1%;">Platos Fuertes</h2>{% endif %}
+    <section id="cards">
+      {% for productosPF in recipePF %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosPF.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosPF.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosPF.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="guar" class="cositas">
+    {% if recipeG %}<h2 class="tittle" style="margin-bottom: 1%;">Guarniciones</h2>{% endif %}
+    <section id="cards">
+      {% for productosG in recipeG %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosG.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosG.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosG.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="pos" class="cositas">
+    {% if recipeP %}<h2 class="tittle" style="margin-bottom: 1%;">Postres</h2>{% endif %}
+    <section id="cards">
+      {% for productosP in recipeP %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosP.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosP.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosP.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+  <div id="suge" class="cositas">
+    {% if recipeS %}<h2 class="tittle" style="margin-bottom: 1%;">Sugerencias</h2>{% endif %}
+    <section id="cards">
+      {% for productosS in recipeS %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosS.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosS.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosS.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
+</section>
