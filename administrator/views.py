@@ -163,6 +163,22 @@ def changeEdit(request):
             
     return redirect('admin')
 
+def addIngre(request):
+    if request.method == 'POST':
+        id_recipe = request.POST.get('id_recipe')
+        name = request.POST.get('ingrediente')
+        amount = request.POST.get('cantidad')
+        
+        recipe = Receta.objects.get(id=id_recipe)
+        
+        new_ingredient = Ingredient(name=name, amount=amount)
+        new_ingredient.save()
+        
+        recipe.ingredients.add(new_ingredient)
+        
+        messages.success(request, 'Se actualizó correctamente el ingrediente.' )
+    return redirect('admin')
+
 def editGW(request):
     if request.method == 'POST':
         id_receta = request.POST.get('id_recipe')

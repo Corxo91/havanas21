@@ -69,8 +69,8 @@
                     </div></td>
                     <td>{{recestas.active}}</td>
                     <td>{{recestas.category}}</td>
-                    <td>{{recestas.price}} cup</td>
-                    <td>{{recestas.price_alter}} usd</td>
+                    <td>{{recestas.price|floatformat:2}} cup</td>
+                    <td>{{recestas.price_alter|floatformat:2}} usd</td>
                 </tr>
               {% endfor %}
               </tbody>
@@ -134,8 +134,8 @@
                     </div></td>
                     <td>{{tragos.active}}</td>
                     <td>{{tragos.category}}</td>
-                    <td>{{tragos.price}} cup</td>
-                    <td>{{tragos.price_alter}} usd</td>
+                    <td>{{tragos.price|floatformat:2}} cup</td>
+                    <td>{{tragos.price_alter|floatformat:2}} usd</td>
                 </tr>
               {% endfor %}
               </tbody>

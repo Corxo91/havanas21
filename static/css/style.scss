@@ -527,7 +527,6 @@
                 }
                 .ingredients {
                     width: 100%;
-                    height: 100%;
                     .ingredientes {
                         display: grid;
                         grid-template-columns: repeat(2,1fr);
@@ -879,6 +878,10 @@
 
   .nShow {
     display: none;
+  }
+
+  .oferta, .carrusel_cuerpo {
+    cursor: pointer;
   }
 
   .opRecipe {

@@ -28,13 +28,13 @@
                     <textarea id="steps" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3" placeholder="{{recipe.steps}}" name="steps">{{recipe.steps}}</textarea>
                     <br>
                     <div class="ultimosDatos">
-                        <div class="divF" style="display:none">
+                        <div class="divF">
                             <label for="price">Precio</label>
-                            <input id="price" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.price}}" value="{{recipe.price}}" aria-label=".form-control-lg example" name="price">
+                            <input id="price" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.price|floatformat:0}}" value="{{recipe.price|floatformat:0}}" aria-label=".form-control-lg example" name="price">
                         </div>
-                        <div class="divC" style="display:none">
+                        <div class="divC">
                             <label for="price_alter">Precio Alternativo</label>
-                            <input id="price_alter" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.price_alter}}" value="{{recipe.price_alter}}" aria-label=".form-control-lg example" name="price_alter">
+                            <input id="price_alter" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.price_alter|floatformat:0}}" value="{{recipe.price_alter|floatformat:0}}" aria-label=".form-control-lg example" name="price_alter">
                         </div>
                         <div class="divL">
                             <label for="time_out" class="to">Preparación(min)</label>

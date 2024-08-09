@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-ip)(xunjiq=r6^(uhe&x05gu3ea#t=kc1o(esg&js-ss0kbspy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['havanas21web.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -53,7 +53,7 @@ ROOT_URLCONF = 'havanas21.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates' )],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,3 +132,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 AUTH_USER_MODEL = 'login.User'
 
 LOGOUT_REDIRECT_URL = 'bienvenida'
+

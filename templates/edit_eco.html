@@ -20,18 +20,18 @@
                     <textarea style="display:none" id="descrip" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="{{recipe.descrip}}" name="descrip">{{recipe.descrip}}</textarea>
                     <label style="display:none" for="steps">Pasos</label>
                     <textarea style="display:none" id="steps" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3" placeholder="{{recipe.steps}}" name="steps">{{recipe.steps}}</textarea>
-                    <div class="ultimosDatos">
-                        <div class="divF">
+                    <div class="ultimosDatos"style="display:flex">
+                        <div class="divF" style="display:none">
                             <label for="price">Precio</label>
                             <input id="price" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.price}}" value="{{recipe.price}}" aria-label=".form-control-lg example" name="price">
                         </div>
-                        <div class="divC">
+                        <div class="divC" style="display:none">
                             <label for="price_alter">Precio Alternativo</label>
                             <input id="price_alter" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.price_alter}}" value="{{recipe.price_alter}}" aria-label=".form-control-lg example" name="price_alter">
                         </div>
-                        <div class="divL">
+                        <div class="divL" style="width:100%;">
                             <label for="time_out" class="to">Preparación(min)</label>
-                            <input id="time_out" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.time_out}}" value="{{recipe.time_out}}" aria-label=".form-control-lg example" name="time_out">
+                            <input id="time_out" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.time_out}}" value="{{recipe.time_out}} minutos" aria-label=".form-control-lg example" name="time_out">
                         </div>
                     </div>
                     <br>
@@ -51,6 +51,7 @@
                             <br>
                         {% endfor %}
                         <input type="hidden" name="counter" value={{contador}} id="iteraciones">
+                        <button class="btn btn-success mt-3 float-end" data-bs-toggle="modal" data-bs-target="#newIngrediente" type="button">Agregar Ingrediente</button>
                     </div>
                     <br>
                 </div>
@@ -59,6 +60,34 @@
                     <input type="submit" value="Guardar" class="btn btn-success rounded-0">
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="modal fade" id="newIngrediente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="{% url "addIngre" %}" method="POST">
+            {% csrf_token %}
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5">Agregar Ingrediente</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id_recipe" value="{{recipe.id}}">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Ingrediente</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="ingrediente">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Cantidad</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="cantidad">
+                      </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger rounded-0" data-bs-dismiss="modal">Cerrar</button>
+                  <input type="submit" class="btn btn-success rounded-0" value="Agregar">
+                </div>
+              </div>
+          </form>  
         </div>
     </div>
 {% endblock  %}

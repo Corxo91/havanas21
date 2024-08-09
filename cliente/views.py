@@ -19,7 +19,6 @@ def salon(request):
     salonG = Receta.objects.filter(active="Sí", place="Restaurante", category="Guarniciones").order_by('recipe')
     salonP = Receta.objects.filter(active="Sí", place="Restaurante", category="Postres").order_by('recipe')
     salonS = Receta.objects.filter(active="Sí", place="Restaurante", category="Sugerencias").order_by('recipe')
-    
     context = {
         'salonEP': salonEP,
         'salonEF': salonEF,
@@ -29,5 +28,5 @@ def salon(request):
         'salonG': salonG,
         'salonP': salonP,
         'salonS': salonS,
-    }
+        }
     return render(request, 'salon.html', context)

@@ -16,16 +16,16 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              <li class="nav-item oferta">
+                <a class="nav-link active rounded-0">Oferta</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
+              <li class="nav-item carrusel_cuerpo">
+                <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
-            <div class="card border-0">
+            <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosEP.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -35,23 +35,20 @@
                     <div class="card-title">
                       <h3>{{productosEP.recipe}}</h3>
                       <div id="price">
-                        <h5>{{productosEP.price}} cup</h5>
+                        <h5>{{productosEP.price|floatformat:2}} cup</h5>
                         <span>-</span>
-                        <h5>{{productosEP.price_alter}} usd</h5>
+                        <h5>{{productosEP.price_alter|floatformat:2}} usd</h5>
                       </div>
                     </div>
                     <p>{{productosEP.descrip}}</p>
                   </div>
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosEP.time_out}} minutos</small></p>
                 </div>
-                <!--<div class="col-md-8">
-                  <div class="card-body">
-                    <div class="card-title">
-                      <h3>{{productosEP.recipe}} galería</h3>
-                    </div>
-                    <p>carrusel</p>
-                  </div>
-                </div>-->
+              </div>
+            </div>
+            <div class="card border-0 carrusel_btn nShow">
+              <div class="row g-0">
+
               </div>
             </div>
           </div>
@@ -70,16 +67,16 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              <li class="nav-item oferta">
+                <a class="nav-link active rounded-0">Oferta</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
+              <li class="nav-item carrusel_cuerpo">
+                <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
-            <div class="card border-0">
+            <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosEF.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -89,15 +86,20 @@
                     <div class="card-title">
                       <h3>{{productosEF.recipe}}</h3>
                       <div id="price">
-                        <h5>{{productosEF.price}} cup</h5>
+                        <h5>{{productosEF.price|floatformat:2}} cup</h5>
                         <span>-</span>
-                        <h5>{{productosEF.price_alter}} usd</h5>
+                        <h5>{{productosEF.price_alter|floatformat:2}} usd</h5>
                       </div>
                     </div>
                     <p>{{productosEF.descrip}}</p>
                   </div>
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosEF.time_out}} minutos</small></p>
                 </div>
+              </div>
+            </div>
+            <div class="card border-0 carrusel_btn nShow">
+              <div class="row g-0">
+                
               </div>
             </div>
           </div>
@@ -114,16 +116,16 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              <li class="nav-item oferta">
+                <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
+              <li class="nav-item carrusel_cuerpo">
+                <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
-            <div class="card border-0">
+            <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosEC.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -133,15 +135,22 @@
                     <div class="card-title">
                       <h3>{{productosEC.recipe}}</h3>
                       <div id="price">
-                        <h5>{{productosEC.price}} cup</h5>
+                        <h5>{{productosEC.price|floatformat:2}} cup</h5>
                         <span>-</span>
-                        <h5>{{productosEC.price_alter}} usd</h5>
+                        <h5>{{productosEC.price_alter|floatformat:2}} usd</h5>
                       </div>
                     </div>
                     <p>{{productosEC.descrip}}</p>
                   </div>
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosEC.time_out}} minutos</small></p>
                 </div>
+              </div>
+            </div>
+            <div class="card border-0 carrusel_btn nShow">
+              <div class="row g-0" id="sobre_img">
+                {% for image in imagenesEC %}
+                <img src="{{image.imagen.url}}" alt="">
+              {% endfor %}
               </div>
             </div>
           </div>
@@ -158,16 +167,16 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              <li class="nav-item oferta">
+                <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
+              <li class="nav-item carrusel_cuerpo">
+                <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
-            <div class="card border-0">
+            <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosCI.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -177,15 +186,19 @@
                     <div class="card-title">
                       <h3>{{productosCI.recipe}}</h3>
                       <div id="price">
-                        <h5>{{productosCI.price}} cup</h5>
+                        <h5>{{productosCI.price|floatformat:2}} cup</h5>
                         <span>-</span>
-                        <h5>{{productosCI.price_alter}} usd</h5>
+                        <h5>{{productosCI.price_alter|floatformat:2}} usd</h5>
                       </div>
                     </div>
                     <p>{{productosCI.descrip}}</p>
                   </div>
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosCI.time_out}} minutos</small></p>
                 </div>
+              </div>
+            </div>
+            <div class="card border-0 carrusel_btn nShow">
+              <div class="row g-0" id="sobre_img">
               </div>
             </div>
           </div>
@@ -202,16 +215,16 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              <li class="nav-item oferta">
+                <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
+              <li class="nav-item carrusel_cuerpo">
+                <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
-            <div class="card border-0">
+            <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosPF.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -221,15 +234,20 @@
                     <div class="card-title">
                       <h3>{{productosPF.recipe}}</h3>
                       <div id="price">
-                        <h5>{{productosPF.price}} cup</h5>
+                        <h5>{{productosPF.price|floatformat:2}} cup</h5>
                         <span>-</span>
-                        <h5>{{productosPF.price_alter}} usd</h5>
+                        <h5>{{productosPF.price_alter|floatformat:2}} usd</h5>
                       </div>
                     </div>
                     <p>{{productosPF.descrip}}</p>
                   </div>
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosPF.time_out}} minutos</small></p>
                 </div>
+              </div>
+            </div>
+            <div class="card border-0 carrusel_btn nShow">
+              <div class="row g-0" id="sobre_img">
+                
               </div>
             </div>
           </div>
@@ -246,16 +264,16 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              <li class="nav-item oferta">
+                <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
+              <li class="nav-item carrusel_cuerpo">
+                <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
-            <div class="card border-0">
+            <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosG.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -265,15 +283,20 @@
                     <div class="card-title">
                       <h3>{{productosG.recipe}}</h3>
                       <div id="price">
-                        <h5>{{productosG.price}} cup</h5>
+                        <h5>{{productosG.price|floatformat:2}} cup</h5>
                         <span>-</span>
-                        <h5>{{productosG.price_alter}} usd</h5>
+                        <h5>{{productosG.price_alter|floatformat:2}} usd</h5>
                       </div>
                     </div>
                     <p>{{productosG.descrip}}</p>
                   </div>
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosG.time_out}} minutos</small></p>
                 </div>
+              </div>
+            </div>
+            <div class="card border-0 carrusel_btn nShow">
+              <div class="row g-0" id="sobre_img">
+                
               </div>
             </div>
           </div>
@@ -290,16 +313,16 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              <li class="nav-item oferta">
+                <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
+              <li class="nav-item carrusel_cuerpo">
+                <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
-            <div class="card border-0">
+            <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosP.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -309,15 +332,20 @@
                     <div class="card-title">
                       <h3>{{productosP.recipe}}</h3>
                       <div id="price">
-                        <h5>{{productosP.price}} cup</h5>
+                        <h5>{{productosP.price|floatformat:2}} cup</h5>
                         <span>-</span>
-                        <h5>{{productosP.price_alter}} usd</h5>
+                        <h5>{{productosP.price_alter|floatformat:2}} usd</h5>
                       </div>
                     </div>
                     <p>{{productosP.descrip}}</p>
                   </div>
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosP.time_out}} minutos</small></p>
                 </div>
+              </div>
+            </div>
+            <div class="card border-0 carrusel_btn nShow">
+              <div class="row g-0" id="sobre_img">
+                
               </div>
             </div>
           </div>
@@ -334,16 +362,16 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              <li class="nav-item oferta">
+                <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
+              <li class="nav-item carrusel_cuerpo">
+                <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
-            <div class="card border-0">
+            <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosS.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -353,15 +381,20 @@
                     <div class="card-title">
                       <h3>{{productosS.recipe}}</h3>
                       <div id="price">
-                        <h5>{{productosS.price}} cup</h5>
+                        <h5>{{productosS.price|floatformat:2}} cup</h5>
                         <span>-</span>
-                        <h5>{{productosS.price_alter}} usd</h5>
+                        <h5>{{productosS.price_alter|floatformat:2}} usd</h5>
                       </div>
                     </div>
                     <p>{{productosS.descrip}}</p>
                   </div>
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosS.time_out}} minutos</small></p>
                 </div>
+              </div>
+            </div>
+            <div class="card border-0 carrusel_btn nShow">
+              <div class="row g-0" id="sobre_img">
+                
               </div>
             </div>
           </div>

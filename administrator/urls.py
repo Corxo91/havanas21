@@ -14,6 +14,7 @@ urlpatterns = [
     path('createUser/', views.createUser, name='createUser'),
     path('deleteUser/', views.deleteUser, name='deleteUser'),
     path('changePassword/', views.changePassword, name='changePassword'),
+    path('addIngre/', views.addIngre, name='addIngre'),
 ]
 
 if settings.DEBUG:
