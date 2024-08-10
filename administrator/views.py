@@ -74,7 +74,7 @@ def create_recipe(request):
                     amount=ingredient_amount
                 )
             recipe.ingredients.add(ingredient)
-        messages.success(request,f'Receta {name} creada exitosamente')    
+        messages.success(request,f'{category} {name} creada exitosamente')    
         return redirect('admin')
     else:
         return render(request, "administrador.html")

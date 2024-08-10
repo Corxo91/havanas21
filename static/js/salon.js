@@ -8,7 +8,7 @@ let pos = document.getElementById('pos');
 let suge = document.getElementById('suge');
 let btnClose = document.getElementById('btnClose');
 
-let ops = [ep,ef,ec,ci,pf,guar,pos];
+let ops = [ep,ef,ec,ci,pf,guar,pos,suge];
 
 function filtrar(id) {
   if (id == "allop") {
@@ -136,52 +136,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-let datos_btn = document.querySelectorAll('.oferta')
-let carrusel_btn = document.querySelectorAll('.carrusel_cuerpo')
-
-datos_btn.forEach(receta => {
-  receta.addEventListener('click', function(){
-    let hijo = receta.querySelector('.nav-link.rounded-0')
-    let padreOp = receta.closest('.nav.nav-tabs.card-header-tabs')
-    let bastardo = padreOp.querySelector('.nav-item.carrusel_cuerpo')
-    let hijoBastardo = bastardo.querySelector('.nav-link.rounded-0')
-    
-    if(!hijo.classList.contains('active')) {
-      hijo.classList.add('active')
-      hijoBastardo.classList.remove('active')
-    }
-
-    let contenedor_super = hijo.closest('.card.text-center.rounded-0')
-    let body = contenedor_super.querySelector('.card-body')
-    let info = body.querySelector('.card.border-0.datos_btn')
-    let carrusel = body.querySelector('.card.border-0.carrusel_btn')
-    if(info.classList.contains('nShow')) {
-      info.classList.remove('nShow')
-      carrusel.classList.add('nShow')
-    }
-  }) 
-})
-
-carrusel_btn.forEach(receta => {
-  receta.addEventListener('click', function(){
-    let hijo = receta.querySelector('.nav-link.rounded-0')
-    let padreOp = receta.closest('.nav.nav-tabs.card-header-tabs')
-    let bastardo = padreOp.querySelector('.nav-item.oferta')
-    let hijoBastardo = bastardo.querySelector('.nav-link.rounded-0')
-    
-    if(!hijo.classList.contains('active')) {
-      hijo.classList.add('active')
-      hijoBastardo.classList.remove('active')
-    }
-
-    let contenedor_super = hijo.closest('.card.text-center.rounded-0')
-    let body = contenedor_super.querySelector('.card-body')
-    let info = body.querySelector('.card.border-0.datos_btn')
-    let carrusel = body.querySelector('.card.border-0.carrusel_btn')
-    if(carrusel.classList.contains('nShow')) {
-      carrusel.classList.remove('nShow')
-      info.classList.add('nShow')
-    }
-  }) 
-})
 
