@@ -453,21 +453,21 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   display: flex;
   gap: 2rem;
 }
-#dashboard .edit_all form {
+#dashboard .edit_all #formulario {
   width: 100%;
   display: flex;
   gap: 2rem;
 }
-#dashboard .edit_all form .img {
+#dashboard .edit_all #formulario .img {
   width: 50%;
   height: 450px;
   position: relative;
 }
-#dashboard .edit_all form .img img {
+#dashboard .edit_all #formulario .img img {
   width: 100%;
   height: 100%;
 }
-#dashboard .edit_all form .img svg {
+#dashboard .edit_all #formulario .img svg {
   position: absolute;
   bottom: 1%;
   right: 1%;
@@ -477,51 +477,53 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   color: var(--identityColor);
   cursor: pointer;
 }
-#dashboard .edit_all form .datos_form {
+#dashboard .edit_all #formulario .datos_form {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
 }
-#dashboard .edit_all form .datos_form label {
+#dashboard .edit_all #formulario .datos_form label {
   font-size: 1.8rem;
   color: var(--identityColor);
 }
-#dashboard .edit_all form .datos_form input {
+#dashboard .edit_all #formulario .datos_form input {
   border-color: var(--identityColor);
   font-size: 1.2rem;
   font-weight: 650;
   text-align: center;
 }
-#dashboard .edit_all form .datos_form a {
+#dashboard .edit_all #formulario .datos_form a {
   border-color: var(--identityColor);
   font-size: 1.2rem;
   font-weight: 650;
   text-align: center;
 }
-#dashboard .edit_all form .datos_form textarea {
+#dashboard .edit_all #formulario .datos_form textarea {
   border-color: var(--identityColor);
   font-size: 1.2rem;
   font-weight: 650;
 }
-#dashboard .edit_all form .datos_form .ultimosDatos {
+#dashboard .edit_all #formulario .datos_form .ultimosDatos {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   -moz-column-gap: 2rem;
        column-gap: 2rem;
 }
-#dashboard .edit_all form .datos_form .ingredients {
+#dashboard .edit_all #formulario .datos_form .ingredients {
   width: 100%;
 }
-#dashboard .edit_all form .datos_form .ingredients .ingredientes {
+#dashboard .edit_all #formulario .datos_form .ingredients .ingredientes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   -moz-column-gap: 2rem;
        column-gap: 2rem;
 }
-#dashboard .edit_all form #botones {
+#dashboard .edit_all #formulario #botones {
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -856,6 +858,10 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   font-size: 3rem;
 }
 
+#dashboard .edit_all form .datos_form .delete_ingre {
+  font-size: 0.7rem !important;
+}
+
 .nShow {
   display: none;
 }
@@ -933,6 +939,14 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   cursor: pointer;
 }
 
+.card.text-center.rounded-0 {
+  cursor: default;
+}
+
+h5.w-25.text-center {
+  cursor: pointer;
+}
+
 /*Disp Moviles normalitos*/
 @media (max-width: 768px) {
   #head {
@@ -996,32 +1010,32 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   #dashboard {
     padding-top: 15%;
   }
-  #dashboard .edit_all form {
+  #dashboard .edit_all #formulario {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  #dashboard .edit_all form .img {
+  #dashboard .edit_all #formulario .img {
     height: 200px;
   }
-  #dashboard .edit_all form .img img {
+  #dashboard .edit_all #formulario .img img {
     width: 100%;
     height: 100%;
   }
-  #dashboard .edit_all form .datos_form {
+  #dashboard .edit_all #formulario .datos_form {
     width: 100%;
   }
-  #dashboard .edit_all form .datos_form label {
+  #dashboard .edit_all #formulario .datos_form label {
     font-size: 1.3rem;
   }
-  #dashboard .edit_all form .datos_form .ultimosDatos {
+  #dashboard .edit_all #formulario .datos_form .ultimosDatos {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     -moz-column-gap: 2rem;
          column-gap: 2rem;
   }
-  #dashboard .edit_all form #botones {
+  #dashboard .edit_all #formulario #botones {
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -1349,6 +1363,15 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   }
   #informacion .info_d .top {
     gap: 2rem;
+  }
+}
+@media (min-width: 350px) and (max-width: 800px) {
+  #informacion .info_d .top .ingredientes {
+    margin-top: 2%;
+    cursor: default;
+  }
+  .ul-ing-modal li h4 {
+    font-size: 20px;
   }
 }
 /*Tablets, iPads y laptops pequeñas*/

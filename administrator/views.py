@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.files.storage import default_storage
-from .models import Receta, Ingredient, GaleryWorck, RecipeGaleryW, GaleryClient, RecipeGaleryC
+from .models import Receta, Ingredient, RecipeIngredient, GaleryWorck, RecipeGaleryW, GaleryClient, RecipeGaleryC
 from login.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -32,6 +32,7 @@ def create_recipe(request):
         alter_price = request.POST.get('alter')
         steps = request.POST.get('steps')
         descript = request.POST.get('descript')
+        descript_en = request.POST.get('descrip_en')
         cooking_time = request.POST.get('time')
         imagen = request.FILES.get('imagen')
         category = request.POST.get('category')
@@ -46,6 +47,7 @@ def create_recipe(request):
             price_alter=alter_price,
             steps=steps,
             descrip=descript,
+            descrip_en=descript_en,
             time_out=cooking_time,
             imagen=imagen,
             category=category,
@@ -130,12 +132,13 @@ def edit(request):
         return render(request, 'edit_comercial.html', context)
     elif request.user.if_economica:
         return render(request, 'edit_eco.html', context)
-
+    
 def changeEdit(request):
     if request.method == 'POST':
         id_receta = request.POST.get('id_recipe')
         recipe = request.POST.get('recipe')
         descrip = request.POST.get('descrip')
+        descrip_en = request.POST.get('descrip_en')
         steps = request.POST.get('steps')
         price = request.POST.get('price')
         price_alter = request.POST.get('price_alter')
@@ -143,6 +146,13 @@ def changeEdit(request):
         counter = request.POST.get('counter')
         imagen = request.FILES.get('imagen')
         cont = int(counter)+1
+        
+        for i in range (1, cont) :
+            ingre_delete_id = request.POST.get(f'ingre_delete{i}')
+            if ingre_delete_id:
+                RecipeIngredient.objects.filter(ingredient_id=ingre_delete_id).delete()
+                Ingredient.objects.filter(id=ingre_delete_id).delete()
+            
         
         for i in range(1, cont):
             ingredient_name = request.POST.get(f'ingredient{i}')
@@ -159,7 +169,7 @@ def changeEdit(request):
             receta.imagen = imagen
             receta.save()
                     
-        Receta.objects.filter(id=id_receta).update(recipe=recipe, descrip=descrip, steps=steps, price=price, price_alter=price_alter, time_out=time_out)
+        Receta.objects.filter(id=id_receta).update(recipe=recipe, descrip=descrip, descrip_en=descrip_en, steps=steps, price=price, price_alter=price_alter, time_out=time_out)
             
     return redirect('admin')
 

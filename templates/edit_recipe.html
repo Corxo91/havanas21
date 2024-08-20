@@ -22,7 +22,9 @@
                     <input id="recipe" class="form-control form-control-lg rounded-0" type="text" placeholder="{{recipe.recipe}}" value="{{recipe.recipe}}" aria-label=".form-control-lg example" name="recipe">
                     <br>
                     <label for="descrip">Descripción <span id="charCount">0/195</span></label>
-                    <textarea id="descrip" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="{{recipe.descrip}}" name="descrip">{{recipe.descrip}}</textarea>
+                    <textarea id="descrip" class="form-control rounded-0" rows="3" placeholder="{{recipe.descrip}}" name="descrip">{{recipe.descrip}}</textarea>
+                    <label for="descrip_en">Descripción Inglés <span id="charCount1">0/195</span></label>
+                    <textarea id="descrip_en" class="form-control rounded-0" rows="3" placeholder="{{recipe.descrip_en}}" name="descrip_en">{{recipe.descrip_en}}</textarea>
                     <br>
                     <label for="steps">Pasos</label>
                     <textarea id="steps" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3" placeholder="{{recipe.steps}}" name="steps">{{recipe.steps}}</textarea>
@@ -46,7 +48,11 @@
                         {% for ingredient in ingrediens %}
                             <div class="ingredientes">
                                 <div>
-                                    <label>Ingrediente {{ forloop.counter }}</label>
+                                    <div class="d-flex justify-content-between align-items-center contenedor_delete">
+                                        <label>Ingrediente {{ forloop.counter }}</label>
+                                        <input type="hidden" name="ingre_delete{{forloop.counter}}" class="input" value="" data-value = "{{ingredient.id}}">
+                                        <input type="button" value="X" class=" btn btn-danger delete_ingre">
+                                    </div>
                                     <input id="ing{{ forloop.counter }}" class="form-control form-control-lg rounded-0" type="text" placeholder="{{ingredient.name}}" value="{{ingredient.name}}" aria-label=".form-control-lg example" name="ingredient{{forloop.counter}}">
                                 </div>
                                 <div>
@@ -63,8 +69,8 @@
                     <br>
                 </div>
                 <div class="float-end" id="botones">
-                    <button class="btn btn-primary rounded-0 float-end" data-bs-toggle="modal" data-bs-target="#galeriaW" type="button">Galería</button>
                     <button class="btn btn-secondary rounded-0 float-end" data-bs-toggle="modal" data-bs-target="#galeriaC" type="button">Mostrador</button>
+                    <button class="btn btn-primary rounded-0 float-end" data-bs-toggle="modal" data-bs-target="#galeriaW" type="button">Galería</button>
                     <a href="{% url "admin" %}" class="btn btn-danger rounded-0 float-end">Cancelar</a>
                     <input type="submit" value="Guardar" class="btn btn-success rounded-0">
                 </div>

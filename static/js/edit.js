@@ -3,6 +3,7 @@ document.getElementById('formulario').addEventListener('submit', function(event)
 
     let recipe = document.getElementById('recipe');
     let descrip = document.getElementById('descrip');
+    let descrip_en = document.getElementById('descrip_en');
     let steps = document.getElementById('steps');
     let price = document.getElementById('price');
     let price_alter = document.getElementById('price_alter');
@@ -10,7 +11,7 @@ document.getElementById('formulario').addEventListener('submit', function(event)
     let count = parseInt(document.getElementById('iteraciones').value);
 
     // Verifica y llena placeholders para los primeros campos
-    [recipe, descrip, steps, price, price_alter, time_out].forEach(function(field) {
+    [recipe, descrip, descrip_en, steps, price, price_alter, time_out].forEach(function(field) {
         if (!field.value) {
             field.value = field.placeholder || '';
         }
@@ -123,6 +124,54 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var textarea = document.getElementById('descrip_en');
+    var charCountSpan = document.getElementById('charCount1');
+
+    // Función para actualizar el contador de caracteres
+    function updateCharCount() {
+        var length = textarea.value.length;
+        charCountSpan.textContent = `${length}/195`;
+    }
+
+    // Actualiza el contador de caracteres inicialmente si el textarea ya tiene contenido
+    if (textarea.value.length > 0) {
+        updateCharCount();
+    }
+
+    // Controlador de eventos para el evento input
+    textarea.addEventListener('input', updateCharCount);
+
+    // Controlador de eventos para el evento keydown
+    textarea.addEventListener('keydown', function(event) {
+        var length = this.value.length;
+
+        // Evita que se añadan más caracteres si ya se alcanzó el límite
+        if (length >= 195 && event.key !== "Backspace") {
+            event.preventDefault(); // Impide la adición de caracteres adicionales
+        }
+    });
+});
+
+let delete_ingre = document.querySelectorAll('.delete_ingre')
+
+delete_ingre.forEach( function (e) {
+    e.addEventListener('click', ()=> {
+        let delete_padre = e.closest('.contenedor_delete')
+        let input = delete_padre.querySelector('.input')
+        let value = input.getAttribute('data-value')
+        if (input.value == "") {
+            input.value = value
+            e.style.opacity = '0.5'
+        } else {
+            input.value = ""
+            e.style.opacity = '1'
+        }
+    })
+})
+
+
 
 
 

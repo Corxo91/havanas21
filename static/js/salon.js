@@ -136,4 +136,44 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+let es = document.getElementById('es')
+let en = document.getElementById('en')
+
+function lenguajeEn() {
+  let containerEn = document.querySelectorAll('.en')
+  let containerEs = document.querySelectorAll('.es')
+
+  es.classList.remove('nShow')
+  en.classList.add('nShow')
+  
+  containerEn.forEach(e => {
+    e.classList.remove('nShow')
+  })
+  
+  containerEs.forEach(e => {
+    e.classList.add('nShow')
+  })
+
+  btnClose.click()
+  
+}
+
+function lenguajeEs() {
+  let containerEn = document.querySelectorAll('.en')
+  let containerEs = document.querySelectorAll('.es')
+  
+  es.classList.add('nShow')
+  en.classList.remove('nShow')
+
+  containerEn.forEach(e => {
+    e.classList.add('nShow')
+  })
+  
+  containerEs.forEach(e => {
+    e.classList.remove('nShow')
+  })
+
+  btnClose.click()
+}
+
 

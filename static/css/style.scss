@@ -471,7 +471,7 @@
         height: 85vh;
         display: flex;
         gap: 2rem;
-        form {
+        #formulario {
             width: 100%;
             display: flex;
             gap: 2rem;
@@ -537,10 +537,11 @@
             #botones {
                 display: flex;
                 flex-direction: column;
+                justify-content: start;
+                align-items: center;
                 gap: 1rem;
             }
         }
-
     }
   }
 
@@ -876,6 +877,10 @@
     }
   }
 
+  #dashboard .edit_all form .datos_form .delete_ingre {
+    font-size: 0.7rem !important;
+  }
+
   .nShow {
     display: none;
   }
@@ -958,6 +963,14 @@
     cursor: pointer;
   }
 
+  .card.text-center.rounded-0 {
+    cursor: default;
+  }
+
+  h5.w-25.text-center {
+    cursor: pointer;
+  } 
+
   /*Disp Moviles normalitos*/
 
 @media (max-width: 768px) {
@@ -1030,7 +1043,7 @@
     #dashboard {
         padding-top: 15%;
         .edit_all {
-            form {
+            #formulario {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -1477,6 +1490,20 @@
         .info_d {
             .top {
                 gap: 2rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 350px) and (max-width: 800px) {
+    #informacion .info_d .top .ingredientes {
+        margin-top: 2%;
+        cursor: default;
+    }
+    .ul-ing-modal{
+        li {
+            h4 {
+                font-size: 20px;
             }
         }
     }
