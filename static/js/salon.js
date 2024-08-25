@@ -176,4 +176,40 @@ function lenguajeEs() {
   btnClose.click()
 }
 
+//Funcion para cambiar de info a fotos
+function change(element) {
+  let clickElement = element
+  let cardParentElement = clickElement.closest('.card.text-center.rounded-0')
+  let infoElement = cardParentElement.querySelector('.datos_recipe')
+  let imageElement = cardParentElement.querySelector('.image_recipe')
+  
+  if (clickElement.classList.contains('oferta')) {
+    //cambiar fondo de botón
+    let aClickElement = clickElement.querySelector('a')
+    aClickElement.classList.add('active')
+    let parentElement = clickElement.closest('.nav.nav-tabs.card-header-tabs')
+    let otherElement = parentElement.querySelector('.carrusel_cuerpo')
+    let aOtherElement = otherElement.querySelector('a')
+    aOtherElement.classList.remove('active')
 
+    //cambiar body
+    if (infoElement.classList.contains('nShow')) {
+      infoElement.classList.remove('nShow')
+      imageElement.classList.add('nShow')
+    }
+    
+  } else if (clickElement.classList.contains('carrusel_cuerpo')) {
+    //cambiar fondo de botón
+    let aClickElement = clickElement.querySelector('a')
+    aClickElement.classList.add('active')
+    let parentElement = clickElement.closest('.nav.nav-tabs.card-header-tabs')
+    let otherElement = parentElement.querySelector('.oferta')
+    let aOtherElement = otherElement.querySelector('a')
+    aOtherElement.classList.remove('active')
+    //cambiar body
+    if (imageElement.classList.contains('nShow')) {
+      imageElement.classList.remove('nShow')
+      infoElement.classList.add('nShow')
+    }
+  } 
+}

@@ -141,6 +141,7 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 #menu_bar #sobre_img .imi {
   height: 20vh;
@@ -245,9 +246,13 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
 
 #sms {
   position: relative;
-  margin-top: 2%;
+  margin-top: 1%;
   width: -moz-max-content;
   width: max-content;
+  max-width: 80%;
+  word-wrap: break-word;
+  padding: 2%;
+  text-align: center;
 }
 
 #mensajes {
@@ -863,7 +868,7 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
 }
 
 .nShow {
-  display: none;
+  display: none !important;
 }
 
 .oferta, .carrusel_cuerpo {
@@ -904,6 +909,22 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   width: 35px;
   height: 35px;
   fill: var(--secondaryColor);
+}
+
+.datos_recipe {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image_recipe {
+  height: 270px;
+}
+
+.carrusel_img {
+  width: 100%;
+  height: 100%;
 }
 
 .table.table.dataTable > :not(caption) > * > * {
@@ -1236,7 +1257,7 @@ h5.w-25.text-center {
 }
 @media (max-width: 480px) {
   #todos {
-    padding-top: 18%;
+    padding-top: 22%;
   }
   #index #buttons {
     width: 70%;
@@ -1250,7 +1271,7 @@ h5.w-25.text-center {
     width: 70%;
   }
   #dashboard {
-    padding-top: 17%;
+    padding-top: 22%;
   }
   #dashboard .edit_all {
     padding-top: 5%;
@@ -1312,6 +1333,9 @@ h5.w-25.text-center {
   #informacion .info_d .top {
     gap: 2rem;
   }
+  #sms {
+    font-size: 15px;
+  }
 }
 @media (min-width: 481px) and (max-width: 600px) {
   #index #buttons {
@@ -1329,7 +1353,7 @@ h5.w-25.text-center {
     padding-top: 17%;
   }
   #dashboard {
-    padding-top: 17%;
+    padding-top: 21%;
   }
   #dashboard #contenido #acounts .contenedor_cuentas table .changeP {
     gap: 0.5rem;

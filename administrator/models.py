@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import Truncator
 
 
 class GaleryWorck(models.Model):

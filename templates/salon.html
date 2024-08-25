@@ -16,16 +16,16 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item oferta">
+              <li class="nav-item oferta" onclick="change(this)">
                 <a class="nav-link active rounded-0">Oferta</a>
               </li>
-              <li class="nav-item carrusel_cuerpo">
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
                 <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
-          <div class="card-body">
-            <div class="card border-0 datos_btn">
+          <div class="card-body datos_recipe">
+            <div class="card border-0 w-100">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosEP.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -48,6 +48,32 @@
               </div>
             </div>
           </div>
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselEP{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosEP.galery_client.all %}
+                <button type="button" data-bs-target="#carouselEP{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosEP.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselEP{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselEP{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
         </div>
       </article>
       {% endfor %}
@@ -63,15 +89,15 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item oferta">
+              <li class="nav-item oferta" onclick="change(this)">
                 <a class="nav-link active rounded-0">Oferta</a>
               </li>
-              <li class="nav-item carrusel_cuerpo">
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
                 <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
-          <div class="card-body">
+          <div class="card-body datos_recipe">
             <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
@@ -94,6 +120,32 @@
                 </div>
               </div>
             </div>
+          </div>`
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselEF{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosEF.galery_client.all %}
+                <button type="button" data-bs-target="#carouselEF{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosEF.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselEF{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselEF{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
         </div>
       </article>
@@ -108,15 +160,15 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item oferta">
+              <li class="nav-item oferta" onclick="change(this)">
                 <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item carrusel_cuerpo">
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
                 <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
-          <div class="card-body">
+          <div class="card-body datos_recipe">
             <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
@@ -140,6 +192,32 @@
               </div>
             </div>
           </div>
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselEC{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosEC.galery_client.all %}
+                <button type="button" data-bs-target="#carouselEC{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosEC.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselEC{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselEC{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
         </div>
       </article>
       {% endfor %}
@@ -153,15 +231,15 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item oferta">
+              <li class="nav-item oferta" onclick="change(this)">
                 <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item carrusel_cuerpo">
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
                 <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
-          <div class="card-body">
+          <div class="card-body datos_recipe">
             <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
@@ -185,6 +263,32 @@
               </div>
             </div>
           </div>
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselCI{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosCI.galery_client.all %}
+                <button type="button" data-bs-target="#carouselCI{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosCI.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselCI{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselCI{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
         </div>
       </article>
       {% endfor %}
@@ -198,15 +302,15 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item oferta">
+              <li class="nav-item oferta" onclick="change(this)">
                 <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item carrusel_cuerpo">
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
                 <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
-          <div class="card-body">
+          <div class="card-body datos_recipe">
             <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
@@ -230,6 +334,32 @@
               </div>
             </div>
           </div>
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselPF{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosPF.galery_client.all %}
+                <button type="button" data-bs-target="#carouselPF{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosPF.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselPF{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselPF{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
         </div>
       </article>
       {% endfor %}
@@ -243,15 +373,15 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item oferta">
+              <li class="nav-item oferta" onclick="change(this)">
                 <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item carrusel_cuerpo">
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
                 <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
-          <div class="card-body">
+          <div class="card-body datos_recipe">
             <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
@@ -275,6 +405,32 @@
               </div>
             </div>
           </div>
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselG{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosG.galery_client.all %}
+                <button type="button" data-bs-target="#carouselG{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosG.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselG{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselG{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
         </div>
       </article>
       {% endfor %}
@@ -288,15 +444,15 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item oferta">
+              <li class="nav-item oferta" onclick="change(this)">
                 <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item carrusel_cuerpo">
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
                 <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
-          <div class="card-body">
+          <div class="card-body datos_recipe">
             <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
@@ -320,6 +476,32 @@
               </div>
             </div>
           </div>
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselP{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosP.galery_client.all %}
+                <button type="button" data-bs-target="#carouselP{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosP.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselP{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselP{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
         </div>
       </article>
       {% endfor %}
@@ -333,15 +515,15 @@
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item oferta">
+              <li class="nav-item oferta" onclick="change(this)">
                 <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
               </li>
-              <li class="nav-item carrusel_cuerpo">
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
                 <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
-          <div class="card-body">
+          <div class="card-body datos_recipe">
             <div class="card border-0 datos_btn">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
@@ -363,6 +545,32 @@
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosS.time_out}} minutos</small></p>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselS{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosS.galery_client.all %}
+                <button type="button" data-bs-target="#carouselS{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosS.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselS{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselS{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
           </div>
         </div>

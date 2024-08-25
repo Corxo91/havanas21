@@ -4,6 +4,7 @@ from django.core.files.storage import default_storage
 from .models import Receta, Ingredient, RecipeIngredient, GaleryWorck, RecipeGaleryW, GaleryClient, RecipeGaleryC
 from login.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.contrib import messages
 import os
 
@@ -22,7 +23,7 @@ def admin(request):
         'activedB': activedB,
         'users': users,
     }
-    return render(request, 'administrador.html', context)
+    return render(request, 'administrador.html', context) 
 
 def create_recipe(request):
     if request.method == 'POST':
@@ -358,3 +359,7 @@ def changePassword(request):
         user.save()
         messages.success(request,f'Se ha actualizado correctamente la clave.')
     return redirect('admin')
+
+def logout_view(request):
+    logout(request)
+    return redirect('bienvenida')

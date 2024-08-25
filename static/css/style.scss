@@ -143,6 +143,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
         .imi {
             height: 20vh;
             display: flex;
@@ -249,8 +250,12 @@
 
   #sms {
     position: relative;
-    margin-top: 2%;
+    margin-top: 1%;
     width: max-content;
+    max-width: 80%;
+    word-wrap: break-word;
+    padding: 2%;
+    text-align: center;
   }
 
   #mensajes {
@@ -882,7 +887,7 @@
   }
 
   .nShow {
-    display: none;
+    display: none !important;
   }
 
   .oferta, .carrusel_cuerpo {
@@ -923,6 +928,22 @@
     width: 35px;
     height: 35px;
     fill: var(--secondaryColor);
+  }
+
+  .datos_recipe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image_recipe {
+    height: 270px;
+  }
+  
+  .carrusel_img {
+    width: 100%;
+    height: 100%;
   }
 
   .table.table.dataTable > :not(caption) > * > * {
@@ -1329,7 +1350,7 @@
 
 @media (max-width: 480px){
     #todos {
-        padding-top: 18%;
+        padding-top: 22%;
     }
     #index {
         #buttons {
@@ -1345,7 +1366,7 @@
         }
     }
     #dashboard {
-        padding-top: 17%;
+        padding-top: 22%;
         .edit_all {
             padding-top: 5%;
             form {
@@ -1426,6 +1447,9 @@
             }
         }
     }
+    #sms {
+        font-size: 15px;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 600px) {
@@ -1446,7 +1470,7 @@
         padding-top: 17%;
     }
     #dashboard {
-        padding-top: 17%;
+        padding-top: 21%;
         #contenido {
             #acounts {
                 .contenedor_cuentas {

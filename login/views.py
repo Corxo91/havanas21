@@ -4,19 +4,11 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
 def welcome_view(request):
-    if request.user.is_authenticated:
-        return redirect('cocina')
-    
     form = AuthenticationForm()
     context = {
         'form': form
     }
     return render(request, 'index.html', context)
-
-from django.shortcuts import redirect, render
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login
-from django.contrib import messages
 
 def login_view(request):
     if request.method == 'POST':
