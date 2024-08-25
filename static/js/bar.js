@@ -1,8 +1,9 @@
 let ep = document.getElementById('ep');
 let ef = document.getElementById('ef');
+let suge = document.getElementById('suge');
 let btnClose = document.getElementById('btnClose');
 
-let ops = [ep,ef];
+let ops = [ep,ef,suge];
 
 function filter(id) {
     if (id == "allop") {
@@ -29,6 +30,16 @@ function filter(id) {
           ops[i].classList.remove('nShow');
         }
         if(ops[i] != ef) {
+          ops[i].classList.toggle('nShow');
+          btnClose.click();
+        }
+      }
+    } else if (id == "op3") {
+      for (let i = 0; i < ops.length; i++) {
+        if(ops[i].classList.contains('nShow')) {
+          ops[i].classList.remove('nShow');
+        }
+        if(ops[i] != suge) {
           ops[i].classList.toggle('nShow');
           btnClose.click();
         }
@@ -69,3 +80,81 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 });
+
+let es = document.getElementById('es')
+let en = document.getElementById('en')
+
+function lenguajeEn() {
+  let containerEn = document.querySelectorAll('.en')
+  let containerEs = document.querySelectorAll('.es')
+
+  es.classList.remove('nShow')
+  en.classList.add('nShow')
+  
+  containerEn.forEach(e => {
+    e.classList.remove('nShow')
+  })
+  
+  containerEs.forEach(e => {
+    e.classList.add('nShow')
+  })
+
+  btnClose.click()
+  
+}
+
+function lenguajeEs() {
+  let containerEn = document.querySelectorAll('.en')
+  let containerEs = document.querySelectorAll('.es')
+  
+  es.classList.add('nShow')
+  en.classList.remove('nShow')
+
+  containerEn.forEach(e => {
+    e.classList.add('nShow')
+  })
+  
+  containerEs.forEach(e => {
+    e.classList.remove('nShow')
+  })
+
+  btnClose.click()
+}
+
+//Funcion para cambiar de info a fotos
+function change(element) {
+  let clickElement = element
+  let cardParentElement = clickElement.closest('.card.text-center.rounded-0')
+  let infoElement = cardParentElement.querySelector('.datos_recipe')
+  let imageElement = cardParentElement.querySelector('.image_recipe')
+  
+  if (clickElement.classList.contains('oferta')) {
+    //cambiar fondo de botón
+    let aClickElement = clickElement.querySelector('a')
+    aClickElement.classList.add('active')
+    let parentElement = clickElement.closest('.nav.nav-tabs.card-header-tabs')
+    let otherElement = parentElement.querySelector('.carrusel_cuerpo')
+    let aOtherElement = otherElement.querySelector('a')
+    aOtherElement.classList.remove('active')
+
+    //cambiar body
+    if (infoElement.classList.contains('nShow')) {
+      infoElement.classList.remove('nShow')
+      imageElement.classList.add('nShow')
+    }
+    
+  } else if (clickElement.classList.contains('carrusel_cuerpo')) {
+    //cambiar fondo de botón
+    let aClickElement = clickElement.querySelector('a')
+    aClickElement.classList.add('active')
+    let parentElement = clickElement.closest('.nav.nav-tabs.card-header-tabs')
+    let otherElement = parentElement.querySelector('.oferta')
+    let aOtherElement = otherElement.querySelector('a')
+    aOtherElement.classList.remove('active')
+    //cambiar body
+    if (imageElement.classList.contains('nShow')) {
+      imageElement.classList.remove('nShow')
+      infoElement.classList.add('nShow')
+    }
+  } 
+}

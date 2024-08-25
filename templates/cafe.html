@@ -7,67 +7,25 @@
 <section id="todos">
   <h2 class="nShow mb-3 text-center" id="general">Resultados de la busqueda</h2>
   <div class="cositas" id="ep">
-    {% if barEf %}<h2 class="tittle  mb-2 text-center">Cócteles</h2>{% endif %}
-    <section id="menu_bar">
-      {% for productosEf in barEf %}
-      <article id="cards_bar">
-        <div class="card text-center rounded-0">
-          <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <div class="card border-0">
-              <div class="row g-0" id="sobre_img">
-                <div class="col-md-4 imi">
-                  <img src="{{productosEf.imagen.url}}" class="img-fluid rounded-0" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <div class="card-title">
-                      <h3>{{productosEf.recipe}}</h3>
-                      <div id="price">
-                        <h5>{{productosEf.price}} cup</h5>
-                        <span>-</span>
-                        <h5>{{productosEf.price_alter}} usd</h5>
-                      </div>
-                    </div>
-                    <p>{{productosEf.descrip}}</p>
-                  </div>
-                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosEf.time_out}} minutos</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-      {% endfor %}
-    </section>
-  </div>
-  <div class="cositas" id="ef">
-    {% if barEp %}<h2 class="tittle  mb-2 text-center">Cafés</h2>{% endif %}
+    {% if barEp %}
+      <h2 class="tittle mb-2 text-center">Cafés</h2>
+    {% endif %}
     <section id="menu_bar">
       {% for productosEP in barEp %}
       <article id="cards_bar">
         <div class="card text-center rounded-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <a class="nav-link active rounded-0" aria-current="true" href="#">Oferta</a>
+              <li class="nav-item oferta" onclick="change(this)">
+                <a class="nav-link active rounded-0">Oferta</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Galería</a>
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
+                <a class="nav-link rounded-0">Galería</a>
               </li>
             </ul>
           </div>
-          <div class="card-body">
-            <div class="card border-0">
+          <div class="card-body datos_recipe">
+            <div class="card border-0 w-100">
               <div class="row g-0" id="sobre_img">
                 <div class="col-md-4 imi">
                   <img src="{{productosEP.imagen.url}}" class="img-fluid rounded-0" alt="...">
@@ -77,16 +35,187 @@
                     <div class="card-title">
                       <h3>{{productosEP.recipe}}</h3>
                       <div id="price">
-                        <h5>{{productosEP.price}} cup</h5>
+                        <h5>{{productosEP.price|floatformat:2}} cup</h5>
                         <span>-</span>
-                        <h5>{{productosEP.price_alter}} usd</h5>
+                        <h5>{{productosEP.price_alter|floatformat:2}} usd</h5>
                       </div>
                     </div>
-                    <p>{{productosEP.descrip}}</p>
+                    <p class="es">{{productosEP.descrip}}</p>
+                    <p class="en nShow">{{productosEP.descrip_en}}</p>
                   </div>
                   <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosEP.time_out}} minutos</small></p>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselEP{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosEP.galery_client.all %}
+                <button type="button" data-bs-target="#carouselEP{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosEP.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselEP{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselEP{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+  <div class="cositas" id="ef">
+    {% if barEf %}
+    <h2 class="tittle mb-2 text-center">Bebidas</h2>
+    {% endif %}
+    <section id="menu_bar">
+      {% for productosEF in barEf %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item oferta" onclick="change(this)">
+                <a class="nav-link active rounded-0">Oferta</a>
+              </li>
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
+                <a class="nav-link rounded-0">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body datos_recipe">
+            <div class="card border-0 w-100">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosEF.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosEF.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosEF.price|floatformat:2}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosEF.price_alter|floatformat:2}} usd</h5>
+                      </div>
+                    </div>
+                    <p class="es">{{productosEF.descrip}}</p>
+                    <p class="en nShow">{{productosEF.descrip_en}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosEF.time_out}} minutos</small></p>
+                </div>
+              </div>
+            </div>
+          </div>`
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselEF{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosEF.galery_client.all %}
+                <button type="button" data-bs-target="#carouselEF{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosEF.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselEF{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselEF{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </div>
+  <div class="cositas" id="suge">
+    {% if barS %}<h2 class="tittle mb-2 text-center">Sugerencias</h2>{% endif %}
+    <section id="menu_bar">
+      {% for productosS in barS %}
+      <article id="cards_bar">
+        <div class="card text-center rounded-0">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item oferta" onclick="change(this)">
+                <a class="nav-link active rounded-0" aria-current="true">Oferta</a>
+              </li>
+              <li class="nav-item carrusel_cuerpo" onclick="change(this)">
+                <a class="nav-link rounded-0">Galería</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body datos_recipe">
+            <div class="card border-0 w-100">
+              <div class="row g-0" id="sobre_img">
+                <div class="col-md-4 imi">
+                  <img src="{{productosS.imagen.url}}" class="img-fluid rounded-0" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <div class="card-title">
+                      <h3>{{productosS.recipe}}</h3>
+                      <div id="price">
+                        <h5>{{productosS.price|floatformat:2}} cup</h5>
+                        <span>-</span>
+                        <h5>{{productosS.price_alter|floatformat:2}} usd</h5>
+                      </div>
+                    </div>
+                    <p class="es">{{productosS.descrip}}</p>
+                    <p class="en nShow">{{productosS.descrip_en}}</p>
+                  </div>
+                  <p class="card-text"><small class="text-body-secondary">Tiempo de preparación {{productosS.time_out}} minutos</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body image_recipe nShow ">
+            <div id="carouselS{{forloop.counter}}" class="carousel carousel-dark slide h-100 w-75 m-auto carru" data-bs-touch="true">
+              <div class="carousel-indicators">
+                {% for foto in productosS.galery_client.all %}
+                <button type="button" data-bs-target="#carouselS{{forloop.parentloop.counter}}" data-bs-slide-to="{{forloop.counter0}}" class="{% if forloop.first %}active{% else %} {% endif %}" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner h-100">
+                
+                {% for foto in productosS.galery_client.all %}
+                <div class="{% if forloop.first %}carousel-item active h-100{% else %}carousel-item h-100{% endif %}">
+                  <img src="{{foto.imagen.url}}" class="d-block carrusel_img" alt="{{foto.imagen.url}}">
+                </div>
+                {% endfor %}
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselS{{forloop.counter}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselS{{forloop.counter}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
           </div>
         </div>

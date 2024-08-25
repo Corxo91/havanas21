@@ -3,11 +3,14 @@ from administrator.models import Receta
 
 
 def bar(request):
-    barEp = Receta.objects.filter(active="Sí", place="Bar", category="Cafés").order_by('recipe')
-    barEf = Receta.objects.filter(active="Sí", place="Bar", category="Bebidas").order_by('recipe')
+    barEp = Receta.objects.filter(active="Sí", place="Bar", category="Cafés").order_by('recipe').prefetch_related('galery_client').all()
+    barEf = Receta.objects.filter(active="Sí", place="Bar", category="Bebidas").order_by('recipe').prefetch_related('galery_client').all()
+    barS = Receta.objects.filter(active="Sí", place="Bar", category="Sugerencias").order_by('recipe').prefetch_related('galery_client').all()
+    
     context = {
         'barEp': barEp,
         'barEf': barEf,
+        'barS': barS,
     }
     return render(request, 'cafe.html', context)
 
