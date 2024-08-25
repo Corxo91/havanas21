@@ -994,6 +994,16 @@
     margin: 0 auto;
   } 
 
+  /*Mediaqueris para el fondo*/
+  @media (max-width: 550px) {
+    .fondo {
+        background: 
+        linear-gradient(90deg, rgba(144,26,60,0.3) 0%, rgba(144,26,60,0.3) 100%),
+        url(../assets/images/index_550px.jpg);
+      }
+  }
+
+
   /*Disp Moviles normalitos*/
 
 @media (max-width: 768px) {
@@ -1348,6 +1358,12 @@
     .table>:not(caption)>*>* {
         padding: .3rem .3rem;
     }
+
+    .fondo {
+        background: 
+        linear-gradient(90deg, rgba(144,26,60,0.3) 0%, rgba(144,26,60,0.3) 100%),
+        url(../assets/images/index_450px.jpg);
+      }
 }
 
 @media (max-width: 480px){
