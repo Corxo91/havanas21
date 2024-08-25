@@ -1,2 +1,4 @@
 havanas21/settings.py
 havanas21/wsgi.py
+havanas21/__pycache__/settings.cpython-312.pyc
+havanas21/__pycache__/wsgi.cpython-312.pyc
