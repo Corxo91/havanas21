@@ -13,6 +13,7 @@ def cocina(request):
     recipeG = Receta.objects.filter(place="Restaurante", category="Guarniciones").order_by('recipe')
     recipeP = Receta.objects.filter(place="Restaurante", category="Postres").order_by('recipe')
     recipeS = Receta.objects.filter(place="Restaurante", category="Sugerencias").order_by('recipe')
+    recipeCop = Receta.objects.filter(place="Restaurante", category="Complementos").order_by('recipe')
     recipeCa = Receta.objects.filter(place="Bar", category="Cafés").order_by('recipe')
     recipeCo = Receta.objects.filter(place="Bar", category="Bebidas").order_by('recipe')
     context = {
@@ -26,6 +27,7 @@ def cocina(request):
         'recipeCa' : recipeCa,
         'recipeCo' : recipeCo,
         'recipeS' : recipeS,
+        'recipeCop' : recipeCop,
     }
     return render(request, 'tools.html', context)
 

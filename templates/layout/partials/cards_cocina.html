@@ -137,4 +137,21 @@
       {% endfor %}
     </section>
   </div>
+  <div id="cop" class="cositas">
+    {% if recipeCop %}<h2 class="tittle" style="margin-bottom: 1%;">Complementos</h2>{% endif %}
+    <section id="cards">
+      {% for productosCop in recipeCop %}
+        <form id="target" action="{% url "info" %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="{{productosCop.id}}">
+          <button type="submit" id="image">
+            <img src="{{productosCop.imagen.url}}" alt="" id="img" />
+            <div id="note">
+                <h5>{{productosCop.recipe}}</h5>
+            </div>
+          </button>
+        </form>
+      {% endfor %}
+    </section>
+  </div>
 </section>

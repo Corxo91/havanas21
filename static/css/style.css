@@ -964,8 +964,10 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
   cursor: default;
 }
 
-h5.w-25.text-center {
+img.text-center {
   cursor: pointer;
+  width: 40px;
+  margin: 0 auto;
 }
 
 /*Disp Moviles normalitos*/

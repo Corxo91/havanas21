@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
   let guar = document.getElementById('guar');
   let pos = document.getElementById('pos');
   let suge = document.getElementById('suge');
+  let cop = document.getElementById('cop');
   let btnClose = document.getElementById('btnClose');
 
-  let ops = [ep,ef,ec,ci,pf,guar,pos,suge];
+  let ops = [ep,ef,ec,ci,pf,guar,pos,suge,cop];
   let opz = [ep,ef];
 
   function filtrar(id) {
@@ -107,6 +108,16 @@ document.addEventListener('DOMContentLoaded', function() {
           ops[i].classList.remove('nShow');
         }
         if(ops[i] != suge) {
+          ops[i].classList.toggle('nShow');
+          btnClose.click();
+        }
+      }
+    } else if (id == "op9") {
+      for (let i = 0; i < ops.length; i++) {
+        if(ops[i].classList.contains('nShow')) {
+          ops[i].classList.remove('nShow');
+        }
+        if(ops[i] != cop) {
           ops[i].classList.toggle('nShow');
           btnClose.click();
         }
