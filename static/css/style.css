@@ -795,7 +795,7 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
 }
 #informacion .info_d .down .galeria {
   width: 100%;
-  height: 100%;
+  height: 80%;
   padding-left: 5%;
   padding-right: 5%;
   display: grid;
@@ -807,7 +807,7 @@ h1, h2, h3, h4, h5, a, p, b, small, span {
 }
 #informacion .info_d .down .galeria img {
   width: 90%;
-  height: 90%;
+  height: 70%;
 }
 #informacion .info_i {
   width: 40%;

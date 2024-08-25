@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let btnClose = document.getElementById('btnClose');
 
   let ops = [ep,ef,ec,ci,pf,guar,pos,suge,cop];
-  let opz = [ep,ef];
+  let opz = [ep,ef,suge];
 
   function filtrar(id) {
     if (id == "allop") {
@@ -150,6 +150,16 @@ document.addEventListener('DOMContentLoaded', function() {
           opz[i].classList.remove('nShow');
         }
         if(opz[i] != ef) {
+          opz[i].classList.toggle('nShow');
+          btnClose.click();
+        }
+      }
+    } else if (id == "op3") {
+      for (let i = 0; i < opz.length; i++) {
+        if(opz[i].classList.contains('nShow')) {
+          opz[i].classList.remove('nShow');
+        }
+        if(opz[i] != suge) {
           opz[i].classList.toggle('nShow');
           btnClose.click();
         }
