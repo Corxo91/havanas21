@@ -34,17 +34,13 @@
         </div>
         <div class="offcanvas-body d-flex flex-column justify-content-between">
             {% include "layout/partials/ham_bar.html" %}
-            <div class="d-flex gap-1 justify-content-center align-items-center padreLenguaje">
-              <input
-              class="form-control w-75"
+            <input
+              class="form-control"
               type="search"
               placeholder="Buscar"
               aria-label="Search"
               id="busqueda"
             />
-              <img src="{% static 'assets/icon/en.png' %}" alt="EN" class="text-center" id="en" onclick="lenguajeEn()">
-              <img src="{% static 'assets/icon/es.png' %}" alt="ES" class="text-center nShow" id="es" onclick="lenguajeEs()">
-            </div>
         </div>
       </div>
     </div>
